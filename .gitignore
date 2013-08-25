@@ -9,3 +9,5 @@ application/logs/*
 !application/logs/.htaccess*.class
 *.pyc
 *.pyo
+application/libraries/fake
+application/libraries/fake
