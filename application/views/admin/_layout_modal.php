@@ -2,7 +2,7 @@
 
 <body style="background: #555;">
 
-    <div class="modal fade">
+    <div class="modal show" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">

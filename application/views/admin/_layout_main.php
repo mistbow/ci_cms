@@ -1,5 +1,5 @@
 <?php $this->load->view('admin/components/page_head'); ?>
-  <body style="padding-top: 70px;;">
+  <body style="padding-top: 70px;">
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
