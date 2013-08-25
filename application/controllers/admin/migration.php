@@ -16,6 +16,7 @@ class Migration extends Admin_Controller
 		else {
 			echo 'Migration worked!';
 		}
+        $this->view = FALSE;
 	
 	}
 
