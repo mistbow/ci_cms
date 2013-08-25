@@ -1,7 +1,7 @@
 <?php
 class Dashboard extends Admin_Controller {
 	
-	function __construct($argument) {
+	function __construct() {
 		parent :: __construct();
 	}
     
