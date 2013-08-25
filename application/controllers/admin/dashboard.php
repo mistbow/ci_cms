@@ -6,10 +6,10 @@ class Dashboard extends Admin_Controller {
 	}
     
     public function index() {
-        $this->view = 'admin/_layout_main';
+        $this->view = 'admin/_layout_main.php';
     }
     
     public function modal() {
-        $this->view = 'admin/_layout_modal';
+        $this->view = 'admin/_layout_modal.php';
     }
 }
