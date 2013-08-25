@@ -1,5 +1,5 @@
 <?php $this->load->view('admin/components/page_head'); ?>
-  <body>
+  <body style="padding-top: 70px;;">
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -44,11 +44,11 @@
       <div class="container">
         <div class="row">
             <!-- Main column -->
-            <div class="span9">
+            <div class="col-md-9">
                 <h2>page</h2>
             </div>
             <!-- Sidebar -->
-            <div class="span3">
+            <div class="col-md-3">
                 <section>
                     <?php echo mailto('117064092@qq.com', '<i class="icon-user"></i> 117064092@qq.com'); ?><br>
                     <?php echo anchor('admin/user/logout', '<i class="icon-off"></i> logout'); ?>
