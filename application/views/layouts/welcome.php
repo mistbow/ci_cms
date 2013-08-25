@@ -1,7 +1,7 @@
 <h1>Header</h1>
 
 <div id="page">
-    <?= $yield ?>
+    <?php echo $yield; ?>
 </div>
 
 <p>Footer</p>
