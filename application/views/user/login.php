@@ -6,8 +6,6 @@
         <div class="modal-content">
 <?php $this->load->view($subview); // Subview is set in controller ?>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
             &copy; <?php echo date('Y'); ?> <?php echo $meta_title; ?>
           </div>
         </div><!-- /.modal-content -->

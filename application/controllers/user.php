@@ -1,8 +1,6 @@
 <?php
 class User extends Frontend_Controller {
 	
-	protected $helpers = array( 'cookie', 'file', 'xml' );
-	
 	function __construct() {
 		parent :: __construct();
 	}
