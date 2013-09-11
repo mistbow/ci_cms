@@ -4,12 +4,7 @@
     <div class="modal show" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Log in</h4>
-          </div>
-          <div class="modal-body">
-            <p>One fine body&hellip;</p>
-          </div>
+<?php $this->load->view($subview); // Subview is set in controller ?>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
