@@ -1,20 +1,21 @@
 <div class="modal-header">
-	<h3><?php echo $login; ?></h3>
+	<h3>Log in</h3>
+	<p>Please log in using your credentials</p>
 </div>
 <div class="modal-body">
 <?php echo validation_errors(); ?>
 <?php echo form_open();?>
 <table class="table">
 	<tr>
-		<td><?php echo $email; ?></td>
+		<td>Email</td>
 		<td><?php echo form_input('email'); ?></td>
 	</tr>
 	<tr>
-		<td><?php echo $username; ?></td>
+		<td>Username</td>
 		<td><?php echo form_input('username'); ?></td>
 	</tr>
 	<tr>
-		<td><?php echo $password; ?></td>
+		<td>Password</td>
 		<td><?php echo form_password('password'); ?></td>
 	</tr>
 	<tr>
