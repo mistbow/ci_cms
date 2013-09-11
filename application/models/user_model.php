@@ -4,7 +4,7 @@
  */
 class User_Model extends MY_Model {
 	
-	protected $validate = array(
+	public $validate = array(
         array( 'field' => 'email', 
                'label' => 'email',
                'rules' => 'required|valid_email|is_unique[users.email]' ),
