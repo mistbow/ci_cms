@@ -11,16 +11,8 @@
 		<td><?php echo form_input('email'); ?></td>
 	</tr>
 	<tr>
-		<td>Username</td>
-		<td><?php echo form_input('username'); ?></td>
-	</tr>
-	<tr>
 		<td>Password</td>
 		<td><?php echo form_password('password'); ?></td>
-	</tr>
-	<tr>
-		<td>confirm password</td>
-		<td><?php echo form_password('password_confirmation'); ?></td>
 	</tr>
 	<tr>
 		<td></td>

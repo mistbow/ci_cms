@@ -8,7 +8,7 @@ class User extends Frontend_Controller {
 	}
     
     public function login() {
-    	$validate = $this->user->validate;
+    	$validate = $this->user->login_validate;
 		$this->form_validation->set_rules($validate);
     	if ($this->form_validation->run() == TRUE) {
     		// We can login and redirect
@@ -17,7 +17,6 @@ class User extends Frontend_Controller {
     }
 	
 	public function register() {
-		$this->data['user'] = $this->user;
 		$this->data['subview'] = 'components/register_subview';
 	}
     

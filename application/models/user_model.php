@@ -16,5 +16,14 @@ class User_Model extends MY_Model {
                'rules' => 'required|matches[password]' ),
     );
 	
+	public $login_validate = array(
+        array( 'field' => 'email', 
+               'label' => 'email',
+               'rules' => 'required|valid_email|is_unique[users.email]' ),
+        array( 'field' => 'password',
+               'label' => 'password',
+               'rules' => 'required' ),
+    );
+	
 }
 
