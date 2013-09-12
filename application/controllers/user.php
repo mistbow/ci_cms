@@ -15,5 +15,10 @@ class User extends Frontend_Controller {
     	}
     	$this->data['subview'] = 'components/login_subview';
     }
+	
+	public function register() {
+		var_dump($this->user);
+		$this->data['subview'] = 'components/register_subview';
+	}
     
 }
