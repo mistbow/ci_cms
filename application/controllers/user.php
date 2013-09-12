@@ -17,7 +17,7 @@ class User extends Frontend_Controller {
     }
 	
 	public function register() {
-		var_dump($this->user);
+		$this->data['user'] = $this->user;
 		$this->data['subview'] = 'components/register_subview';
 	}
     
