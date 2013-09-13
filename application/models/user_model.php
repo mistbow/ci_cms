@@ -19,7 +19,7 @@ class User_Model extends MY_Model {
 	public $login_validate = array(
         array( 'field' => 'email', 
                'label' => 'email',
-               'rules' => 'required|valid_email|is_unique[users.email]' ),
+               'rules' => 'required|valid_email' ),
         array( 'field' => 'password',
                'label' => 'password',
                'rules' => 'required' ),
