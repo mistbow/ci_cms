@@ -25,5 +25,40 @@ class User_Model extends MY_Model {
                'rules' => 'required' ),
     );
 	
+	public function login ()
+	{
+		$user = $this->get_by(array(
+			'email' => $this->input->post('email'),
+			'password' => $this->salt($this->input->post('password'), $this->input->post('email')),
+		), TRUE);
+		
+		if (count($user)) {
+			// Log in user
+			$data = array(
+				'name' => $user->name,
+				'email' => $user->email,
+				'id' => $user->id,
+				'loggedin' => TRUE,
+			);
+			$this->session->set_userdata($data);
+		}
+	}
+
+	public function logout ()
+	{
+		$this->session->sess_destroy();
+	}
+
+	public function loggedin ()
+	{
+		return (bool) $this->session->userdata('loggedin');
+	}
+
+	function salt($toHash,$email){ 
+	    $password = str_split($toHash,(strlen($toHash)/2)+1); 
+	    $hash = hash('md5', $email.$password[0].'centerSalt'.$password[1]); 
+	    return $hash; 
+	}
+	
 }
 

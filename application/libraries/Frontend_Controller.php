@@ -7,6 +7,7 @@ class Frontend_Controller extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
+		$this->load->library('session');
 		$this->data['meta_title'] = '6bey website CMS';
 	}
 }
