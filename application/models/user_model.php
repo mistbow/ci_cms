@@ -35,7 +35,7 @@ class User_Model extends MY_Model {
 		if (count($user)) {
 			// Log in user
 			$data = array(
-				'name' => $user->name,
+				'username' => $user->username,
 				'email' => $user->email,
 				'id' => $user->id,
 				'loggedin' => TRUE,
