@@ -1,7 +1,7 @@
 <?php
 class Frontend_Controller extends MY_Controller
 {
-	protected $helpers = array( 'cookie', 'file', 'xml', 'form' );
+	protected $helpers = array( 'url', 'cookie', 'file', 'xml', 'form' );
 	
 	function __construct ()
 	{
