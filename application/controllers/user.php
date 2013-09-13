@@ -14,7 +14,7 @@ class User extends Frontend_Controller {
     
     public function login() {
     	$dashboard = 'admin/dashboard';
-		$this->user_m->loggedin() == FALSE || redirect($dashboard);
+		$this->user->loggedin() == FALSE || redirect($dashboard);
 		
     	$validate = $this->user->login_validate;
 		$this->form_validation->set_rules($validate);
