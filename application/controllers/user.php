@@ -14,6 +14,8 @@ class User extends Frontend_Controller {
     
     public function login() {
     	$dashboard = 'admin/dashboard';
+		$this->user_m->loggedin() == FALSE || redirect($dashboard);
+		
     	$validate = $this->user->login_validate;
 		$this->form_validation->set_rules($validate);
     	if ($this->form_validation->run() == TRUE) {
@@ -29,6 +31,10 @@ class User extends Frontend_Controller {
     	$this->data['subview'] = 'components/login_subview';
     }
 	
+	public function logout() {
+		$this->user->logout();
+		redirect('user/login');
+	}
 	public function register() {
 		$this->data['subview'] = 'components/register_subview';
 	}
