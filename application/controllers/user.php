@@ -6,6 +6,10 @@ class User extends Frontend_Controller {
 	function __construct() {
 		parent :: __construct();
 	}
+	
+	public function index() {
+		$this->view = 'user/login.php';
+	}
     
     public function login() {
     	$validate = $this->user->login_validate;
