@@ -8,6 +8,7 @@ class User extends Frontend_Controller {
 	}
 	
 	public function index() {
+		$this->data['subview'] = 'components/login_subview';
 		$this->view = 'user/login.php';
 	}
     
