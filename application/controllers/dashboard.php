@@ -7,5 +7,9 @@ class Dashboard extends Frontend_Controller {
     
     public function index() {
     }
+	
+	public function debug() {
+		
+	}
     
 }
