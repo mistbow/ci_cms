@@ -29,7 +29,7 @@ class User_Model extends MY_Model {
 	{
 		$user = $this->get_by(array(
 			'email' => $this->input->post('email'),
-			'password' => $this->salt($this->input->post('password'), $this->input->post('email')),
+			'password' => $this->hash($this->input->post('password')),
 		), TRUE);
 		
 		if (count($user)) {
@@ -50,13 +50,13 @@ class User_Model extends MY_Model {
 		$userId = $this->insert(array(
 			'email' => $this->input->post('email'),
 			'username' => $this->input->post('username'),
-			'password' => $this->salt($this->input->post('password'), $this->input->post('email')),
+			'password' => $this->hash($this->input->post('password')),
 			'created_on' => time(),
 		));
 		if($userId) {
 			$data = array(
-				'username' => $user->username,
-				'email' => $user->email,
+				'username' => $this->input->post('username'),
+				'email' => $this->input->post('email'),
 				'id' => $userId,
 				'loggedin' => TRUE,
 			);
@@ -75,11 +75,10 @@ class User_Model extends MY_Model {
 	{
 		return (bool) $this->session->userdata('loggedin');
 	}
-
-	function salt($toHash,$email){ 
-	    $password = str_split($toHash,(strlen($toHash)/2)+1); 
-	    $hash = hash('md5', $email.$password[0].'centerSalt'.$password[1]); 
-	    return $hash; 
+	
+	public function hash ($string)
+	{
+		return hash('sha512', $string . config_item('encryption_key'));
 	}
 	
 }

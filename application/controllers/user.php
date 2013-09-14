@@ -14,7 +14,9 @@ class User extends Frontend_Controller {
     
     public function login() {
     	$dashboard = 'dashboard';
-		$this->user->loggedin() == FALSE || redirect($dashboard);
+		if(!is_null($this->user) && $this->user->loggedin() == TRUE) {
+			redirect($dashboard);
+		}
 		
     	$validate = $this->user->login_validate;
 		$this->form_validation->set_rules($validate);
@@ -37,7 +39,9 @@ class User extends Frontend_Controller {
 	}
 	public function register() {
 		$dashboard = 'dashboard';
-		$this->user->loggedin() == FALSE || redirect($dashboard);
+		if(!is_null($this->user) && $this->user->loggedin() == TRUE) {
+			redirect($dashboard);
+		}
 		
     	$validate = $this->user->validate;
 		$this->form_validation->set_rules($validate);
