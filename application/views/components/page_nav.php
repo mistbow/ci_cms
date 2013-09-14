@@ -20,7 +20,7 @@
 				<li class="active"><a href="#">大题库</a></li>
 				
 			</ul>
-			<?php if(is_object($this->session->userdata) && $this->session->userdata->loggedin) :?>
+			<?php if(is_array($this->session->userdata) && $this->session->userdata->loggedin) :?>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a class="dropdown-toggle" href="http://www.6bey.com/active/message">
