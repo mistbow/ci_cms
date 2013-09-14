@@ -4,7 +4,6 @@
     <div class="modal show" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
-        	<?php var_dump($user); ?>
 <?php $this->load->view($subview); // Subview is set in controller ?>
           <div class="modal-footer">
             &copy; <?php echo date('Y'); ?> <?php echo $meta_title; ?>
