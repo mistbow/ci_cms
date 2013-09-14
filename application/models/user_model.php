@@ -47,6 +47,7 @@ class User_Model extends MY_Model {
 	}
 
 	public function register() {
+		$this->skip_validation();
 		$userId = $this->insert(array(
 			'email' => $this->input->post('email'),
 			'username' => $this->input->post('username'),
