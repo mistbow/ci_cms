@@ -18,7 +18,7 @@
 		      <span class="put_top">置顶</span>
 		    
 		    <a class="" href="/topic/519e01c563e9f8a542fa68f9">
-		      【一起学node.js】再再版啦~
+				一起来学习啦~~
 		    </a>
 		  </div>
 		  
@@ -47,7 +47,7 @@
 		      <span class="put_top">置顶</span>
 		    
 		    <a class="" href="/topic/519e01c563e9f8a542fa68f9">
-		      【一起学node.js】再再版啦~
+		      		一起来学习啦~~
 		    </a>
 		  </div>
 		    <div class="last_time">5-23 19:47</div>
