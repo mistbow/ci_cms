@@ -13,7 +13,7 @@ class User extends Frontend_Controller {
 	}
     
     public function login() {
-    	$dashboard = 'admin/dashboard';
+    	$dashboard = 'dashboard';
 		$this->user->loggedin() == FALSE || redirect($dashboard);
 		
     	$validate = $this->user->login_validate;
@@ -36,6 +36,21 @@ class User extends Frontend_Controller {
 		redirect('user/login');
 	}
 	public function register() {
+		$dashboard = 'dashboard';
+		$this->user->loggedin() == FALSE || redirect($dashboard);
+		
+    	$validate = $this->user->validate;
+		$this->form_validation->set_rules($validate);
+    	if ($this->form_validation->run() == TRUE) {
+    		// We can login and redirect
+    		if ($this->user->register() == TRUE) {
+    			redirect($dashboard);
+    		}
+    		else {
+    			$this->session->set_flashdata('error', '对不起，系统错误请稍后注册');
+    			redirect($dashboard);
+    		}
+    	}
 		$this->data['subview'] = 'components/register_subview';
 	}
     

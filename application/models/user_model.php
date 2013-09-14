@@ -46,6 +46,25 @@ class User_Model extends MY_Model {
 		return FALSE;
 	}
 
+	public function register() {
+		$userId = $this->insert(array(
+			'email' => $this->input->post('email'),
+			'username' => $this->input->post('username'),
+			'password' => $this->salt($this->input->post('password'), $this->input->post('email')),
+		));
+		if($userId) {
+			$data = array(
+				'username' => $user->username,
+				'email' => $user->email,
+				'id' => $userId,
+				'loggedin' => TRUE,
+			);
+			$this->session->set_userdata($data);
+			return TRUE;
+		}
+		return FALSE;
+	}
+
 	public function logout ()
 	{
 		$this->session->sess_destroy();
