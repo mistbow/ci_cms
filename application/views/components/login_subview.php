@@ -3,7 +3,6 @@
 	<p>Please log in using your credentials</p>
 </div>
 <div class="modal-body">
-	<?php echo '<pre>' . print_r($this->session->userdata, TRUE) . '</pre>'; ?>
 <?php echo validation_errors(); ?>
 <?php echo form_open();?>
 <table class="table">
