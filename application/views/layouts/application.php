@@ -11,4 +11,4 @@
 		</div><!-- end col-md-3 -->
 	</div><!-- end row-->
 </div><!-- end container -->
-<?php $this->load->view('components/page_head'); ?>
+<?php $this->load->view('components/page_tail'); ?>
