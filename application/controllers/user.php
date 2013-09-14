@@ -34,8 +34,9 @@ class User extends Frontend_Controller {
     }
 	
 	public function logout() {
+		$dashboard = 'dashboard';
 		$this->user->logout();
-		redirect('user/login');
+		redirect($dashboard);
 	}
 	public function register() {
 		$dashboard = 'dashboard';
