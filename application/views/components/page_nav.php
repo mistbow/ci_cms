@@ -36,7 +36,7 @@
 					  <li><a href="#">个人空间</a></li>
 					  <li><a href="#">我的习题集</a></li>
 					  <li class="divider">&nbsp;</li>
-					  <li><?php echo anchor('user/register', '退出'); ?></li>
+					  <li><?php echo anchor('user/logout', '退出'); ?></li>
 					</ul>
 				</li>
 			</ul>
