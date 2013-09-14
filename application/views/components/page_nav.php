@@ -20,7 +20,7 @@
 				<li class="active"><a href="#">大题库</a></li>
 				
 			</ul>
-		
+			<?php if($this->session->loggedin) :?>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a class="dropdown-toggle" href="http://www.6bey.com/active/message">
@@ -30,7 +30,10 @@
       			</li>
 
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">乐天 <b class="caret"></b></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<?php echo $this->session->userdata->username; ?> 
+						<b class="caret"></b>
+					</a>
 					<ul class="dropdown-menu">
 					  <li><a href="#">个人资料</a></li>
 					  <li><a href="#">个人空间</a></li>
@@ -40,6 +43,12 @@
 					</ul>
 				</li>
 			</ul>
+			<?php else : ?>
+			<ul>
+				<li><?php echo anchor('user/register', '注册'); ?></li>
+				<li><?php echo anchor('user/login', '登录'); ?></li>
+			</ul>
+			<?php endif; ?>
 		</div> <!-- end collapse navbar-collapse navbar-ex1-collapse -->
 
 	</div> <!-- end container -->
