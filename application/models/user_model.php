@@ -29,7 +29,7 @@ class User_Model extends MY_Model {
 	{
 		$user = $this->get_by(array(
 			'email' => $this->input->post('email'),
-			'password' => $this->hash($this->input->post('password')),
+			'password' => $this->encode_password($this->input->post('password')),
 		), TRUE);
 		
 		if (count($user)) {
@@ -50,7 +50,7 @@ class User_Model extends MY_Model {
 		$userId = $this->insert(array(
 			'email' => $this->input->post('email'),
 			'username' => $this->input->post('username'),
-			'password' => $this->hash($this->input->post('password')),
+			'password' => $this->encode_password($this->input->post('password')),
 			'created_on' => time(),
 		));
 		if($userId) {
@@ -76,9 +76,9 @@ class User_Model extends MY_Model {
 		return (bool) $this->session->userdata('loggedin');
 	}
 	
-	public function hash ($string)
+	public function encode_password ($string)
 	{
-		return hash('sha512', $string . config_item('encryption_key'));
+		return hash('sha256', $string . config_item('encryption_key'));
 	}
 	
 }
