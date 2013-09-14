@@ -1,3 +1,4 @@
 <?php echo form_open(); ?>
-<input type="text" name="content" />
+<textarea rows="3" cols="20" name="content">
+</textarea>
 <?php echo form_close(); ?>

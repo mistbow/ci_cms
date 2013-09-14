@@ -4,7 +4,7 @@
  */
 class Article extends Frontend_Controller {
 	
-	function __construct($argument) {
+	function __construct() {
 		parent :: __construct();
 	}
 	
