@@ -51,6 +51,7 @@ class User_Model extends MY_Model {
 			'email' => $this->input->post('email'),
 			'username' => $this->input->post('username'),
 			'password' => $this->salt($this->input->post('password'), $this->input->post('email')),
+			'created_on' => time(),
 		));
 		if($userId) {
 			$data = array(
