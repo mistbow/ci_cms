@@ -20,7 +20,7 @@
 				<li class="active"><a href="#">大题库</a></li>
 				
 			</ul>
-			<?php if(is_array($this->session->userdata) && $this->session->userdata->loggedin) :?>
+			<?php if(is_array($this->session->userdata) && $this->session->userdata['loggedin']) :?>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a class="dropdown-toggle" href="http://www.6bey.com/active/message">
@@ -31,7 +31,7 @@
 
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<?php echo $this->session->userdata->username; ?> 
+						<?php echo $this->session->userdata['username']; ?> 
 						<b class="caret"></b>
 					</a>
 					<ul class="dropdown-menu">
