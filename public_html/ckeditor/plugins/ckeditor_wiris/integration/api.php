@@ -42,7 +42,7 @@ class com_wiris_plugin_PluginAPI {
 		$parsedProperties['mml'] = $mathml;
 		$toSave = wrs_createIni($parsedProperties);
 		$fileName = md5($toSave);
-		$baseURL = 'www.6bey.com/ckeditor/plugins/ckeditor_wiris/integration';
+		$baseURL = 'http://www.6bey.com/ckeditor/plugins/ckeditor_wiris/integration';
 		$url = $baseURL . '/showimage.php?formula=' . $fileName . '.png';
 		$filePath = $this->formulaDirectory . '/' . $fileName . '.ini';
 
