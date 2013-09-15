@@ -1,4 +1,3 @@
 <?php echo form_open(); ?>
-<textarea rows="3" cols="20" name="content">
-</textarea>
+<textarea name="editor1">&lt;p&gt;Initial value.&lt;/p&gt;</textarea>
 <?php echo form_close(); ?>
