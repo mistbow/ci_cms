@@ -52,8 +52,8 @@
 
 		<div id="iconsDiv">		
 		<ul id="icons">
-			<li><img src="ckeditor/plugins/ckeditor_wiris/core/icons/formula.gif" /> WIRIS editor</li>
-			<li><img src="ckeditor/plugins/ckeditor_wiris/core/icons/cas.gif" /> WIRIS cas</li>
+			<li><img src="<?php echo base_url(); ?>/ckeditor/plugins/ckeditor_wiris/core/icons/formula.gif" /> WIRIS editor</li>
+			<li><img src="<?php echo base_url(); ?>/ckeditor/plugins/ckeditor_wiris/core/icons/cas.gif" /> WIRIS cas</li>
 		</ul>
 		</div>
 
@@ -135,6 +135,6 @@
 		<?php	
 		}
 		?>		
-		<script src="google_analytics.js"></script>
+		<script src="<?php echo base_url(); ?>/js/google_analytics.js"></script>
 	</body>
 </html>
