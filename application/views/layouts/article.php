@@ -1,6 +1,7 @@
 <?php $this->load->view('components/page_head'); ?>
 <!-- Place inside the <head> of your HTML -->
 <script type="text/javascript" src="<?php echo base_url();?>/js/tinymce/tinymce.min.js"></script>
+<script src="<?php echo base_url();?>/js/tinymce/plugins/tiny_mce_wiris/plugin.js"></script>
 <script type="text/javascript">
 tinymce.init({
     selector: "textarea"
