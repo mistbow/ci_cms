@@ -5,6 +5,10 @@ box-shadow: 0 1px 0 hsl(0,0%,90%);
 padding: 3px 10px;
 }
 
+li,dl{ 
+	list-style-type:none;
+}
+
 .cell .block {
 float: left;
 text-align: center;
@@ -41,3 +45,8 @@ height: 40px;
 #create_topic_btn {
 float: right;
 }
+
+li.subject {
+	margin : 0 10px;
+}
+
