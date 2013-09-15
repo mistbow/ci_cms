@@ -50,3 +50,70 @@ li.subject {
 	margin : 0 10px;
 }
 
+.zw_class {
+padding: 15px;
+border: 1px solid #e1e1e1;
+background: #fafafa;
+margin-bottom: 20px;
+}
+
+.zw_class dl {
+width: 900px;
+line-height: 25px;
+overflow: hidden;
+zoom: 1;
+}
+
+.zw_class dt {
+overflow: hidden;
+zoom: 1;
+}
+
+.zw_class dt em {
+float: left;
+padding-right: 20px;
+font-weight: bold;
+font-size: 14px;
+}
+
+.zw_class dt strong {
+width: 50px;
+display: block;
+float: left;
+line-height: 26px;
+}
+
+.zw_class dt span {
+float: left;
+display: block;
+width: 675px;
+}
+.zw_class dt span b {
+font-weight: normal;
+}
+
+.zw_class dt a {
+display: block;
+float: left;
+width: 67px;
+height: 16px;
+line-height: 16px;
+margin: 5px 4px;
+}
+
+.zw_class dt span i {
+padding: 0px 2px;
+}
+
+nobr {
+white-space: nowrap;
+}
+
+.orange {
+color: #ff6e00;
+}
+
+em, i {
+font-style: normal;
+}
+
