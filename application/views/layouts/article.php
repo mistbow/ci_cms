@@ -4,6 +4,15 @@
 <script type="text/javascript">
 tinymce.init({
     selector: "textarea"
+    plugins: 'tiny_mce_wiris',
+    toolbar: 'tiny_mce_wiris'
+    wirisimagebgcolor: '#FFFFFF',
+    wirisimagesymbolcolor: '#000000',
+    wiristransparency: 'true',
+    wirisimagefontsize: '16',
+    wirisimagenumbercolor: '#000000',
+    wirisimageidentcolor: '#000000',
+    wirisformulaeditorlang: 'es'
  });
 </script>
 <?php echo $yield; ?>
