@@ -4,7 +4,7 @@
 		<div class="media">
 			<span class="label label-info pull-right" style="margin-top:5px;">28</span>
 		  <a class="pull-left" href="#">
-		    <img class="media-object" src="img/1.jpg" width="48" height="48" alt="...">
+		    <img class="media-object" src="/img/1.jpg" width="48" height="48" alt="...">
 		  </a>
 		  <div class="media-body">
 		    <h4 class="media-heading"><a>大家是如何走到开发这个道路上来的？</a></h4>
