@@ -74,7 +74,11 @@ class User_Model extends MY_Model {
 
 	public function loggedin ()
 	{
-		return (bool) $this->session->userdata('loggedin');
+		if($this->session == null) {
+			return FALSE;
+		} else {
+			return (bool) $this->session->userdata('loggedin');
+		}
 	}
 	
 	public function encode_password ($string)
