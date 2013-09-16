@@ -1,4 +1,4 @@
-<div class="zw_class">
+<div class="content-unit">
 	<?php for ($i=0; $i < 3; $i++):?>
 	<dl>
 		<dt>

@@ -1,3 +1,7 @@
+<div class="siderbar-unit" style="text-align:center;">
+  <a href="#" class="btn btn-success">发布新帖</a>
+</div>
+			    
 <div class="panel panel-default">
 	<div class="panel-heading">微信二维码</div>
 	<div class="panel-body" >
