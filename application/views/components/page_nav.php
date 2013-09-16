@@ -14,10 +14,10 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">学习社区</a></li>
-				<li class="active"><a href="#">习题精讲</a></li>
-				<li class="active"><a href="#">问答社区</a></li>
-				<li class="active"><a href="#">大题库</a></li>
+				<li class="active"><?php echo anchor('forum/index', '学习社区'); ?></li>
+				<li class="active"><?php echo anchor('exercise/index', '习题精讲'); ?></li>
+				<li class="active"><?php echo anchor('ask/index', '问答社区'); ?></li>
+				<li class="active"><?php echo anchor('problem/index', '大题库'); ?></li>
 				
 			</ul>
 			<?php if(is_array($this->session->userdata) 
