@@ -1,5 +1,5 @@
 <?php
-class Forum extends Frontend_Controller {
+class Topic extends Frontend_Controller {
 	
 	function __construct() {
 		parent :: __construct();
