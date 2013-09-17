@@ -3,8 +3,9 @@ body {
 }
 
 a {
-	color: #08c;
+	color: #2c64d7;
 	text-decoration: none;
+	font-family:Microsoft YaHei;
 }
 
 li.subject {
