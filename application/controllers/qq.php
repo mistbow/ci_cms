@@ -2,16 +2,16 @@
 class Qq extends Frontend_Controller {
 	function __construct() {
 		parent :: __construct();
-		$this->load->library('Qc');
+		$this->load->library('qc');
 	}
 	
 	public function login() {
-		$this->Qc->qq_login();
+		$this->qc->qq_login();
 	}
 	
 	public function callback() {
-		$this->Qc->qq_callback();
-		$openid = $this->Qc->get_openid();
+		$this->qc->qq_callback();
+		$openid = $this->qc->get_openid();
 		$this->data['openid'] = $openid;
 	}
 }

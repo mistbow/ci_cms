@@ -5,7 +5,7 @@
 /*
  * @brief QC类，api外部对象，调用接口全部依赖于此对象
  * */
-class QC extends Oauth{
+class Qc extends Oauth{
     private $kesArr, $APIMap;
 
     /**
