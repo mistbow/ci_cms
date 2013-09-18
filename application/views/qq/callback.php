@@ -1,1 +1,2 @@
-<?php echo $openid; ?>
+<?php echo $openid; ?></br>
+<?php echo $access_token; ?>
