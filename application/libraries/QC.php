@@ -511,17 +511,18 @@ class Recorder{
     public function __construct(){
         $this->error = new ErrorCase();
 		
-		$this->load->library('session');
+		$this->ci = & get_instance();
+		$this->ci->load->library('session');
 		
 		//-------读取配置文件
-		$this->config->load('qq_config');
-		$this->inc = $this->config->item('qc');
+		$this->ci->config->load('qq_config');
+		$this->inc = $this->ci->config->item('qc');
         
         if(empty($this->inc)){
             $this->error->showError("20001");
         }
 		
-		$qc_user_data = $this->session->userdata('qc_user_data');
+		$qc_user_data = $this->ci->session->userdata('qc_user_data');
         if(empty($qc_user_data)){
             self::$data = array();
         }else{
@@ -531,7 +532,7 @@ class Recorder{
 
     public function write($name,$value){
         self::$data[$name] = $value;
-		$this->session->set_userdata('qc_user_data', self::$data);
+		$this->ci->session->set_userdata('qc_user_data', self::$data);
     }
 
     public function read($name){
@@ -552,11 +553,11 @@ class Recorder{
 
     public function delete($name){
         unset(self::$data[$name]);
-		$this->session->set_userdata('qc_user_data', self::$data);
+		$this->ci->session->set_userdata('qc_user_data', self::$data);
     }
 
     function __destruct(){
-    	$this->session->set_userdata('qc_user_data', self::$data);
+    	$this->ci->session->set_userdata('qc_user_data', self::$data);
     }
 }
 
