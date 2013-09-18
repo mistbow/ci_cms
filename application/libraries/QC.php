@@ -520,11 +520,12 @@ class Recorder{
         if(empty($this->inc)){
             $this->error->showError("20001");
         }
-
-        if(empty($this->session->userdata('qc_user_data'))){
+		
+		$qc_user_data = $this->session->userdata('qc_user_data');
+        if(empty($qc_user_data)){
             self::$data = array();
         }else{
-            self::$data = $this->session->userdata('qc_user_data');
+            self::$data = $qc_user_data;
         }
     }
 
