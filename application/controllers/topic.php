@@ -11,21 +11,12 @@ class Topic extends Frontend_Controller {
     }
 	
 	public function newtopic() {
-		$user_id = $this->session->userdata('user_id');
-		$logged_in = $this->session->userdata('loggedin');
-		if(!$logged_in || empty($user_id)) {
-			redirect('qq/login');	
-		}
+		$this->_check_logged_in();
 		$this->view = 'topic/new.php';
 	}
     
 	public function create() {
-		$user_id = $this->session->userdata('user_id');
-		$logged_in = $this->session->userdata('loggedin');
-		if(!$logged_in || empty($user_id)) {
-			redirect('qq/login');	
-		}
-		$user_id = $this->session->userdata('id');
+		$user_id = $this->_check_logged_in();
 		$validate = $this->topic->create_validation;
 		$this->form_validation->set_rules($validate);
     	if ($this->form_validation->run() == TRUE) {
@@ -45,5 +36,14 @@ class Topic extends Frontend_Controller {
 	
 	public function update() {
 		
+	}
+	
+	private function _check_logged_in() {
+		$user_id = $this->session->userdata('id');
+		$logged_in = $this->session->userdata('loggedin');
+		if(!$logged_in || empty($user_id)) {
+			redirect('qq/login');	
+		}
+		return $user_id;
 	}
 }
