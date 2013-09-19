@@ -19,7 +19,7 @@ class Qq extends Frontend_Controller {
 		if($this->token->check_token_exits($openid)) {
 			$this->token->update_access_token($openid, $access_token);
 		}
-		$ret = $qc->get_info();
+		$ret = $this->qc->get_info();
 		if($ret['ret'] == 0){
 			$this->data['username'] = $ret['nickname'];
 			$this->data['avatar'] = $ret['figureurl_qq_1'];
