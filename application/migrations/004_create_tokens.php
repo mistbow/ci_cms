@@ -37,7 +37,7 @@ class Migration_Create_tokens extends CI_Migration {
 				'type' => 'TINYINT',
 				'constraint' => '3',
 				'unsigned' => TRUE,
-				'default' => 1,
+				'default' => 1, //qq
 			),
 			'expire_time' => array(
 				'type' => 'INT',

@@ -4,6 +4,12 @@
  */
 class User_Model extends MY_Model {
 	
+	public function __construct() {
+        parent::__construct();
+		$this->load->model('userinfo');
+		$this->load->model('token');
+		$this->load->model('vip');
+	}
 	public $validate = array(
         array( 'field' => 'email', 
                'label' => 'email',
@@ -46,6 +52,41 @@ class User_Model extends MY_Model {
 		return FALSE;
 	}
 
+	public function qq_register() {
+		$this->skip_validation();
+		$user_id = $this->insert(array(
+			'username' => $this->input->post('username'),
+			'email' => $this->input->post('email'),
+			'password' => $this->encode_password($this->input->post('password')),
+		));
+		if($user_id) {
+			$user_info_id = $this->userinfo->insert(array(
+				'user_id' => $user_id,
+				'created_on' => time(),
+				'avatar' => $this->input->post('avatar'),
+			));
+			if(!$user_info_id) {
+				log_message('error', 'User_Model|qq_register|save userinfo error|'
+					.$user_id."|".$this->input->post('avatar'));
+				return FALSE;
+			}
+			$token_id = $this->token->insert(array(
+				'user_id' => $user_id,
+				'third_user_id' => $this->input->post('third_user_id'),
+				'access_token' => $this->input->post('access_token'),
+				'add_time' => time(),
+			));
+			if(!$token_id) {
+				log_message('error', 'User_Model|qq_register|save userinfo error|'
+					.$user_id."|".$this->input->post('third_user_id')."|"
+					.$this->input->post('access_token'));
+				return FALSE;
+			}
+			return $user_id;
+		}
+		return FALSE;
+		
+	}
 	public function register() {
 		$this->skip_validation();
 		$userId = $this->insert(array(

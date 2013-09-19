@@ -25,7 +25,7 @@ class Qq extends Frontend_Controller {
 			$this->data['avatar'] = $ret['figureurl_qq_1'];
 			$this->data['third_user_id'] = $openid;
 			$this->data['access_token'] = $access_token;
-			$this->data['subview'] = 'qq_register_subview';
+			$this->data['subview'] = 'components/qq_register_subview';
 		}else{
 		    $this->data['ret'] = 1;
 			$this->data['error'] = '网络错误，获取用户头像姓名失败';
@@ -34,7 +34,18 @@ class Qq extends Frontend_Controller {
 		$this->view = 'qq/register.php';
 	}
 	
-	public function create() {
-		
+	public function register() {
+		$validate = $this->user->validate;
+		$this->form_validation->set_rules($validate);
+    	if ($this->form_validation->run() == TRUE) {
+    		// We can login and redirect
+    		if ($this->user->qq_register() !== FALSE) {
+    			redirect('');
+    		}
+    		else {
+    			$this->session->set_flashdata('error', '对不起，系统错误请稍后注册');
+    		}
+    	}
+		$this->data['subview'] = 'components/qq_register_subview';
 	}
 }
