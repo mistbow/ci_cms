@@ -48,7 +48,7 @@ class Migration_Create_userinfos extends CI_Migration {
         $data = array(
             'id' => '10001',
             'user_id' => 10001,
-            'created_on' => now(),
+            'created_on' => time(),
             'avatar' => '8cm.jpg',
             'tagline' => '好好学习，天天向上',
             'school' => 'california',
