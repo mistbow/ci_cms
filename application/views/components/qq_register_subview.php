@@ -7,7 +7,7 @@
 <?php 
 	$hidden = array('third_user_id' => $third_user_id
 		, 'access_token' => $access_token, 'avatar' => $avatar);
-	echo form_open('qq/register', $hidden);
+	echo form_open('qq/register','', $hidden);
 ?>
 <table class="table">
 	<tr>
