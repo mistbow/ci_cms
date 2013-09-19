@@ -79,7 +79,15 @@ class User_Model extends MY_Model {
 					.$this->input->post('access_token'));
 				return FALSE;
 			}
-			return $user_id;
+			
+			//并且登录
+			$data = array(
+				'username' => $this->input->post('username'),
+				'id' => $user_id,
+				'loggedin' => TRUE,
+			);
+			$this->session->set_userdata($data);
+			return TRUE;
 		}
 		return FALSE;
 		
