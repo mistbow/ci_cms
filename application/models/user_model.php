@@ -6,9 +6,9 @@ class User_Model extends MY_Model {
 	
 	public function __construct() {
         parent::__construct();
-		$this->load->model('userinfo_model');
-		$this->load->model('token_model');
-		$this->load->model('vip_model');
+		$this->load->model('userinfo_model', 'userinfo');
+		$this->load->model('token_model', 'token');
+		$this->load->model('vip_model', 'vip');
 	}
 	public $validate = array(
         array( 'field' => 'password',
