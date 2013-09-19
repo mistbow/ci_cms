@@ -1,7 +1,7 @@
 <?php
 class Qq extends Frontend_Controller {
 	
-	protected $models = array('token');
+	protected $models = array('token', 'user');
 	
 	function __construct() {
 		parent :: __construct();
