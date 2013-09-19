@@ -1,6 +1,6 @@
 <div class="modal-header">
-	<h3>Log in</h3>
-	<p>Please log in using your credentials</p>
+	<h3>登录成功</h3>
+	<p>请您完善个人信息</p>
 </div>
 <div class="modal-body">
 <?php echo validation_errors(); ?>
