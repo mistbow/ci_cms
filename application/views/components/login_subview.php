@@ -17,6 +17,7 @@
 	<tr>
 		<td></td>
 		<td><?php echo form_submit('submit', 'Log in', 'class="btn btn-primary"'); ?></td>
+		<td><?php echo anchor('/qq/login', '<img src="/img/qq_login.png" alt="qq login" />') ?></td>
 	</tr>
 </table>
 <?php echo form_close();?>
