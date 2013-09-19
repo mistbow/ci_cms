@@ -11,16 +11,18 @@ class Topic extends Frontend_Controller {
     }
 	
 	public function newtopic() {
-		if(!$this->session->userdata('loggedin') 
-			|| !isset($this->session->userdata('id'))) {
+		$user_id = $this->session->userdata('user_id');
+		$logged_in = $this->session->userdata('loggedin');
+		if(!$logged_in || empty($user_id)) {
 			redirect('qq/login');	
 		}
 		$this->view = 'topic/new.php';
 	}
     
 	public function create() {
-		if(!$this->session->userdata('loggedin') 
-			|| !isset($this->session->userdata('id'))) {
+		$user_id = $this->session->userdata('user_id');
+		$logged_in = $this->session->userdata('loggedin');
+		if(!$logged_in || empty($user_id)) {
 			redirect('qq/login');	
 		}
 		$user_id = $this->session->userdata('id');
