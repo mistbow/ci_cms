@@ -8,7 +8,7 @@
 	</tr>
 	<tr>
 		<td>
-			<?php echo form_textarea('content') ?>
+			<?php echo form_textarea('body') ?>
 		</td>
 	</tr>
 	<tr>
