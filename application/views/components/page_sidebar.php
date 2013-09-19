@@ -1,5 +1,6 @@
 <div class="siderbar-unit" style="text-align:center;">
-  <a href="#" class="btn btn-success">发布新帖</a>
+  <?php echo anchor(base_url() . 'topic/newtopic'
+  		, '发布新帖', array('class'=>"btn btn-success")) ?>
 </div>
 			    
 <div class="panel panel-default">
