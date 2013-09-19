@@ -8,8 +8,11 @@ class Topic extends Frontend_Controller {
     public function index() {
     }
 	
-	public function debug() {
-		
+	public function newtopic() {
+		$this->view = 'topic/new.php';
 	}
     
+	public function create() {
+		
+	}
 }
