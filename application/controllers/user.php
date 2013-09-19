@@ -12,10 +12,11 @@ class User extends Frontend_Controller {
 		$this->view = 'user/login.php';
 	}
     
+	public function loggedin() {
+		return (bool) $this->session->userdata('loggedin');
+	}
     public function login() {
-		if(!is_null($this->user) && $this->user->loggedin() == TRUE) {
-			redirect('');
-		}
+		if($this->loggedin()) redirect('');
 		
     	$validate = $this->user->login_validate;
 		$this->form_validation->set_rules($validate);
@@ -38,7 +39,7 @@ class User extends Frontend_Controller {
 		redirect('');
 	}
 	public function register() {
-		if(!is_null($this->user) && $this->user->loggedin() == TRUE) {
+		if($this->user->loggedin() == TRUE) {
 			redirect('');
 		}
 		
