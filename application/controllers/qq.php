@@ -10,7 +10,7 @@ class Qq extends Frontend_Controller {
 	
 	public function login() {
 		$this->qc->qq_login();
-		exit;
+		$this->view = FALSE;
 	}
 	
 	public function callback() {
