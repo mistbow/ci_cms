@@ -53,7 +53,6 @@ class User_Model extends MY_Model {
 		$this->skip_validation();
 		$user_id = $this->insert(array(
 			'username' => $this->input->post('username'),
-			'email' => $this->input->post('email'),
 			'password' => $this->encode_password($this->input->post('password')),
 		));
 		if($user_id) {
