@@ -48,7 +48,7 @@
 			<?php else : ?>
 			<ul class="nav navbar-nav navbar-right">
 				<li><?php echo anchor('user/register', '注册'); ?></li>
-				<li><?php echo anchor('user/login', '登录'); ?></li>
+				<li><?php echo anchor('qq/login', '登录'); ?></li>
 			</ul>
 			<?php endif; ?>
 		</div> <!-- end collapse navbar-collapse navbar-ex1-collapse -->
