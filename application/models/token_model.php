@@ -1,6 +1,6 @@
 <?php
 /**
- * user class
+ * token class
  */
 class Token_Model extends MY_Model {
 	
