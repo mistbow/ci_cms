@@ -1,7 +1,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading">当前话题</div>
 	<div class="panel-body">
-		<?php foreach($topis as $topic) : ?>
+		<?php foreach($topics as $topic) : ?>
 		<div class="media">
 			<span class="label label-info pull-right" style="margin-top:5px;">28</span>
 		  <a class="pull-left" href="#">
