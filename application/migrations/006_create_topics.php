@@ -18,6 +18,10 @@ class Migration_Create_topics extends CI_Migration {
                 'unsigned' => TRUE,
                 'default' => 1,
             ),
+            'title' => array(
+                'type' => 'VARCHAR',
+                'constraint' => '200',
+            ),
             'body' => array(
                 'type' => 'TEXT',
             ),
