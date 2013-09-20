@@ -21,7 +21,7 @@ class Topic extends Frontend_Controller {
 		$this->form_validation->set_rules($validate);
     	if ($this->form_validation->run() == TRUE) {
     		if ($this->topic->create($user_id) !== FALSE) {
-    			redirect('');
+    			redirect('topic/index');
     		}
     		else {
     			$this->session->set_flashdata('error', '账号或者密码错误');
