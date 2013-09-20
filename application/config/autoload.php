@@ -80,7 +80,7 @@ $autoload['helper'] = array('url', 'file', 'cms');
 |
 */
 
-$autoload['config'] = array('cms_config');
+$autoload['config'] = array('cms_config', 'pagination');
 
 
 /*
