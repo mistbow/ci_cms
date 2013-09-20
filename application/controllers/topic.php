@@ -9,6 +9,7 @@ class Topic extends Frontend_Controller {
 	}
     
     public function index() {
+    	$config['base_url'] =  'http://6bey.com/topic/index/';
     	$config['total_rows'] = $this->topic->count_all();
 		$per_page = $this->config->item('per_page');
 		$now_page = intval($this->uri->segment(3));
@@ -17,6 +18,7 @@ class Topic extends Frontend_Controller {
 		}
 		$offset = $per_page * $now_page;
 		$this->data['topics'] = $this->topic->limit($per_page, $offset)->get_all();
+		$this->pagination->initialize($config);
         $this->data['links'] = $this->pagination->create_links();
     }
 	
