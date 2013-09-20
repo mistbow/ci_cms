@@ -8,6 +8,8 @@ class Topic extends Frontend_Controller {
 	}
     
     public function index() {
+    	$topics = $this->topic->get_all();
+		$this->data['topics'] = $topics;
     }
 	
 	public function newtopic() {
