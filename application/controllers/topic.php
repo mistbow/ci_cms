@@ -13,7 +13,7 @@ class Topic extends Frontend_Controller {
     	$config['total_rows'] = $this->topic->count_all();
 		$per_page = $this->config->item('per_page');
 		$now_page = intval($this->uri->segment(3));
-		$offset = $per_page * ($now_page - 1) - 1;
+		$offset = $per_page * ($now_page - 1);
 		if($offset < 0) $offset = 0;
 		$this->data['topics'] = $this->topic->limit($per_page, $offset)->get_all();
 		$this->pagination->initialize($config);
