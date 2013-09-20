@@ -20,7 +20,7 @@ class Topic extends Frontend_Controller {
 		$validate = $this->topic->create_validation;
 		$this->form_validation->set_rules($validate);
     	if ($this->form_validation->run() == TRUE) {
-    		if ($this->topic->create($user_id) == TRUE) {
+    		if ($this->topic->create($user_id) !== FALSE) {
     			redirect('');
     		}
     		else {

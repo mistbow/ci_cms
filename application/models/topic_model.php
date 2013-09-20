@@ -22,5 +22,6 @@ class Topic_Model extends MY_Model {
 			'created_at' => time(),
 			'user_id' => $user_id,
 		));
+		return $topic_id;
 	}
 }
