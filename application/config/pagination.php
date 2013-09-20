@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-$config['base_url'] = "http://6bey.com/topic/index";
 $config['total_rows'] = 200;
 $config['per_page'] = 5;
 $config['use_page_numbers'] = TRUE;
