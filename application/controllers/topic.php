@@ -9,6 +9,7 @@ class Topic extends Frontend_Controller {
 	}
     
     public function index() {
+    	$config['total_rows'] = $this->topic->count_all();
 		$per_page = $this->config->item('per_page');
 		$now_page = intval($this->uri->segment(3));
 		if($now_page == 0) {
@@ -17,7 +18,6 @@ class Topic extends Frontend_Controller {
 		$offset = $per_page * $now_page;
 		$this->data['topics'] = $this->topic->limit($per_page, $offset)->get_all();
         $this->data['links'] = $this->pagination->create_links();
-		
     }
 	
 	public function newtopic() {

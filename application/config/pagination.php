@@ -1,6 +1,6 @@
-<?php 
-$config['base_url'] = $this->uri->uri_string();
-$config['total_rows'] = $this->topic->count_all();
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$config['base_url'] = "http://6bey.com/topic/index";
+$config['total_rows'] = 200;
 $config['per_page'] = 5;
 $config['use_page_numbers'] = TRUE;
 $config['full_tag_open'] = '<ul class="pagination">';
