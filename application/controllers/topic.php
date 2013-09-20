@@ -19,7 +19,7 @@ class Topic extends Frontend_Controller {
 		$config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
 		
 		$this->pagination->initialize($config); 
-		$this->data['topics'] = $this->topic->limit($config['per_page'], $this->uri->segment(3));
+		$this->data['topics'] = $this->topic->limit($config['per_page'], $this->uri->segment(3))->get_all();
         $this->data['links'] = $this->pagination->create_links();
 		
     }
