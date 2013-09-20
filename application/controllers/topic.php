@@ -32,6 +32,12 @@ class Topic extends Frontend_Controller {
 		}
 	}
 	
+	public function show() {
+		$topic_id = $this->uri->segment(3);
+		$topic = $this->topic->get($topic_id);
+		$this->data['topic'] = $topic;
+	}
+	
 	public function edit() {
 		
 	}
