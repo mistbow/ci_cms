@@ -27,7 +27,7 @@ class Migration_Create_topics extends CI_Migration {
                 'unsigned' => TRUE,
             ),
             'replies_count' => array(
-            	'type' => TINYINT,
+            	'type' => 'TINYINT',
             	'constraint' => '3',
                 'unsigned' => TRUE,
                 'default' => 0,
