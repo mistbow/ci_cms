@@ -5,11 +5,18 @@ class Topic extends Frontend_Controller {
 	
 	function __construct() {
 		parent :: __construct();
+		$this->load->library('pagination');
 	}
     
     public function index() {
-    	$topics = $this->topic->get_all();
-		$this->data['topics'] = $topics;
+    	$config['base_url'] = $this->uri->uri_string();
+        $config['total_rows'] = $this->topic->count_all();
+        $config['per_page'] = 5;
+		$this->pagination->initialize($config); 
+		
+		$this->data['topics'] = $this->topic->limit($config['per_page'], $this->uri->segment(3));
+        $this->data['links'] = $this->pagination->create_links();
+		
     }
 	
 	public function newtopic() {

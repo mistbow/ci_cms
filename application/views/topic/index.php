@@ -28,6 +28,7 @@
 		    1小时前 by 灵感之源 | 最后回复 6分钟前 by kxdd2002
 		  </div>
 		</div>
-
+		
+		<div><?php echo $links;?></div>
 	</div> <!-- end panel-body -->
 </div> <!-- end panel panel-success -->
