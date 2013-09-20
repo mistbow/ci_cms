@@ -12,8 +12,13 @@ class Topic extends Frontend_Controller {
     	$config['base_url'] = $this->uri->uri_string();
         $config['total_rows'] = $this->topic->count_all();
         $config['per_page'] = 5;
-		$this->pagination->initialize($config); 
+		$config['use_page_numbers'] = TRUE;
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
 		
+		$this->pagination->initialize($config); 
 		$this->data['topics'] = $this->topic->limit($config['per_page'], $this->uri->segment(3));
         $this->data['links'] = $this->pagination->create_links();
 		
