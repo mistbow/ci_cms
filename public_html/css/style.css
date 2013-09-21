@@ -113,3 +113,8 @@ em, i {
 .media-heading  {
 	font-size: 17px;
 }
+
+/* 帖子列表 横线向下一点 */
+.media {
+	padding-bottom: 5px;
+}
