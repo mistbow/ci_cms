@@ -767,6 +767,11 @@ class MY_Model extends CI_Model
         $this->_database->limit($limit, $offset);
         return $this;
     }
+	
+	public function select($columns) {
+		$this->_database->select($columns);
+        return $this;
+	}
 
     /* --------------------------------------------------------------
      * INTERNAL METHODS

@@ -2,6 +2,9 @@
 
 class Topic_Model extends MY_Model {
 	
+	protected $home_page_columns = 'id, node_id, title, user_id, replies_count, last_reply_user_id
+			, replied_at, created_at, updated_at';
+	
 	public function __construct() {
         parent::__construct();
 	}
@@ -23,5 +26,9 @@ class Topic_Model extends MY_Model {
 			'user_id' => $user_id,
 		));
 		return $topic_id;
+	}
+	
+	public function get_topics_by_page($per_page, $offset) {
+		$this->select($this->home_page_columns).limit($per_page, $offset).get_all();
 	}
 }
