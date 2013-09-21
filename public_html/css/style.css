@@ -108,3 +108,8 @@ em, i {
 	-moz-border-radius: 6px;
 	border-radius: 6px;
 }
+
+/* 帖子列表 head显示字体大小 */
+.media-heading  {
+	font-size: 17px;
+}
