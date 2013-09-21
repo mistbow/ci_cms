@@ -29,6 +29,9 @@ class Topic_Model extends MY_Model {
 	}
 	
 	public function get_topics_by_page($per_page, $offset) {
-		return $this->select($this->home_page_columns)->limit($per_page, $offset)->get_all();
+		return $this->select($this->home_page_columns)
+					->order_by(array('replied_at' => 'desc', 'created_at' => 'desc'))
+					->limit($per_page, $offset)
+					->get_all();
 	}
 }
