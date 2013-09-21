@@ -27,9 +27,9 @@ function time_ago($unix_date) {
  
 	$difference = round($difference);
 	 
-	if($difference != 1) {
-		$periods[$j].= "s";
-	}
+	// if($difference != 1) {
+		// $periods[$j].= "s";
+	// }
  
-	return "$difference $periods[$j] {$tense}";
+	return $difference.$periods[$j].$tense;
 }
