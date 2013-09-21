@@ -29,6 +29,6 @@ class Topic_Model extends MY_Model {
 	}
 	
 	public function get_topics_by_page($per_page, $offset) {
-		$this->select($this->home_page_columns).limit($per_page, $offset).get_all();
+		$this->select($this->home_page_columns)->limit($per_page, $offset)->get_all();
 	}
 }
