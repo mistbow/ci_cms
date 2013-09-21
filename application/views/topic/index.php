@@ -13,7 +13,7 @@
 		    <h4 class="media-heading">
 		    	<?php echo anchor('/topic/show/'.$topic->id, $topic->title); ?>
 		    </h4>
-		    <?php echo time_ago($topic->created_at); ?>by 灵感之源 | 最后回复 6分钟前 by kxdd2002
+		    <?php echo time_ago($topic->created_at); ?> by 灵感之源 | 最后回复 6分钟前 by kxdd2002
 		  </div>
 		</div>
 		<?php endforeach; ?>
