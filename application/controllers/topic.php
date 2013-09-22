@@ -72,14 +72,14 @@ class Topic extends Frontend_Controller {
 	private function _append_user_info(&$topics) {
 		if(!empty($topics)) {
 			foreach ($topics as $key => $value) {
-				$req[] = $value['user_id'];
+				$req[] = $value->user_id;
 			}
 			$req = array_unique($req);
 			$users = $this->user->get_users_by_ids($req);
 			
 			foreach ($topics as $key => &$value) {
-				$user_id = $value['user_id'];
-				$value['user'] = $users[$user_id];
+				$user_id = $value->user_id;
+				$value->user = $users[$user_id];
 			}
 		}
 	}

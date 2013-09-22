@@ -138,13 +138,14 @@ class User_Model extends MY_Model {
 		if(!is_array($ids) || empty($ids)) {
 			return $res;
 		}
-		$users = $this->select($this->user_basic_columns)->where_in('id', $ids)->get_all();
+		$users = $this->select($this->user_basic_columns)->where_in('id', $ids)
+					  ->as_array()->get_all();
 		if(empty($users)) {
 			return array();
 		}
 		
 		foreach ($users as $key => $value) {
-			$res[$value['id']] = $value;
+			$res[$value->id] = $value;
 		}
 		
 		return $res;

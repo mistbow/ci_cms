@@ -32,7 +32,6 @@ class Topic_Model extends MY_Model {
 		return $this->select($this->home_page_columns)
 					->order_by(array('replied_at' => 'desc', 'created_at' => 'desc'))
 					->limit($per_page, $offset)
-					->as_array()
 					->get_all();
 	}
 }
