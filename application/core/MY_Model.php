@@ -772,6 +772,11 @@ class MY_Model extends CI_Model
 		$this->_database->select($columns);
         return $this;
 	}
+	
+	public function where_in($key, $values) {
+		$this->db->where_in($key, $values);
+		return $this;
+	}
 
     /* --------------------------------------------------------------
      * INTERNAL METHODS

@@ -74,7 +74,7 @@ class Topic extends Frontend_Controller {
 			foreach ($topics as $key => $value) {
 				$req[] = $value['user_id'];
 			}
-			
+			$req = array_unique($req);
 			$users = $this->user->get_users_by_ids($req);
 			
 			foreach ($topics as $key => &$value) {

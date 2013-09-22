@@ -138,9 +138,7 @@ class User_Model extends MY_Model {
 		if(!is_array($ids) || empty($ids)) {
 			return $res;
 		}
-		$where[0] = 'id in (?)';
-		$where[1] = implode(',', $ids);
-		$users = $this->select($user_basic_columns)->_set_where($where)->get_all();
+		$users = $this->select($this->user_basic_columns)->where_in('id', $ids)->get_all();
 		if(empty($users)) {
 			return array();
 		}
