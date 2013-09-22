@@ -885,6 +885,8 @@ class MY_Model extends CI_Model
         {
             $this->_database->where($params);
         }
+		
+		return $this;
     }
 
     /**

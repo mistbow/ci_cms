@@ -1,7 +1,7 @@
 <?php
 class Topic extends Frontend_Controller {
 	
-	protected $models = array('topic');
+	protected $models = array('topic', 'user');
 	
 	function __construct() {
 		parent :: __construct();
@@ -15,7 +15,10 @@ class Topic extends Frontend_Controller {
 		$now_page = intval($this->uri->segment(3));
 		$offset = $per_page * ($now_page - 1);
 		if($offset < 0) $offset = 0;
-		$this->data['topics'] = $this->topic->get_topics_by_page($per_page, $offset);
+		$topics = $this->topic->get_topics_by_page($per_page, $offset);
+		$this->_append_user_info($topics);
+		
+		$this->data['topics'] = $topics;
 		$this->pagination->initialize($config);
         $this->data['links'] = $this->pagination->create_links();
     }
@@ -61,5 +64,23 @@ class Topic extends Frontend_Controller {
 			redirect('qq/login');	
 		}
 		return $user_id;
+	}
+	
+	/**
+	 * 加载用户信息
+	 */
+	private function _append_user_info(&$topics) {
+		if(!empty($topics)) {
+			foreach ($topics as $key => $value) {
+				$req[] = $value['user_id'];
+			}
+			
+			$users = $this->user->get_users_by_ids($req);
+			
+			foreach ($topics as $key => &$value) {
+				$user_id = $value['user_id'];
+				$value['user'] = $users[$user_id];
+			}
+		}
 	}
 }

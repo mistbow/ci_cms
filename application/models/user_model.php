@@ -4,6 +4,8 @@
  */
 class User_Model extends MY_Model {
 	
+	protected $user_basic_columns = 'id, username';
+	
 	public function __construct() {
         parent::__construct();
 		$this->load->model('userinfo_model', 'userinfo');
@@ -129,6 +131,26 @@ class User_Model extends MY_Model {
 	public function encode_password ($string)
 	{
 		return hash('sha256', $string . config_item('encryption_key'));
+	}
+	
+	public function get_users_by_ids($ids) {
+		$res = array();
+		if(!is_array($ids) || empty($ids)) {
+			return $res;
+		}
+		$where[0] = 'id in (?)';
+		$where[1] = implode(',', $ids);
+		$users = $this->select($user_basic_columns)->_set_where($where)->get_all();
+		if(empty($users)) {
+			return array();
+		}
+		
+		foreach ($users as $key => $value) {
+			$res[$value['id']] = $value;
+		}
+		
+		return $res;
+		
 	}
 	
 }
