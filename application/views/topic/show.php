@@ -17,11 +17,13 @@
 
 </div>
 
-
+<?php if($topic->replies_count != 0): ?>
 <div class="content-unit">
+	
 	<div class="media">
 	  共<?php echo $topic->replies_count; ?>条回复
 	</div>
+	
 	<?php if(count($topic->replies) > 0) : foreach($topic->replies as $reply): ?>
 		<div class="media">
 		  <a class="pull-left" href="#">
@@ -38,7 +40,7 @@
 	<?php endif; ?>
 	
 </div>
-
+<?php endif; ?>
 
 
 <div class="content-unit">
