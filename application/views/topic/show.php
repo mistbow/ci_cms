@@ -19,6 +19,28 @@
 
 
 <div class="content-unit">
+	<div class="media">
+	  共<?php echo $topic->replies_count; ?>条回复
+	</div>
+	<?php if(count($topic->replies) > 0) : foreach($topic->replies as $reply): ?>
+		<div class="media">
+		  <a class="pull-left" href="#">
+		    <img class="media-object" src="/img/1.jpg" width="48" height="48" alt="...">
+		  </a>
+		  <div class="media-body">
+		    <h4 class="media-heading">
+		    	<a href="http://www.6bey.com/index.php/topic/show/13">求推荐ios教程</a>		    </h4>
+		    	<?php echo $reply->body; ?>
+		  </div>
+		</div>
+	<?php endforeach; ?>
+	<?php endif; ?>
+	
+</div>
+
+
+
+<div class="content-unit">
 <?php echo validation_errors(); ?>
 <?php 
 	$hidden = array(

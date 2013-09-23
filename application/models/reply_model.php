@@ -25,10 +25,8 @@ class Reply_Model extends MY_Model {
 		return $reply_id;
 	}
 	
-	public function get_topics_by_page($per_page, $offset) {
-		return $this->select($this->home_page_columns)
-					->order_by(array('replied_at' => 'desc', 'created_at' => 'desc'))
-					->limit($per_page, $offset)
-					->get_all();
+	public function get_topic_replies($topic_id) {
+		return $this->order_by('created_at', 'desc')
+					->get_by('topic_id', $topic_id);
 	}
 }

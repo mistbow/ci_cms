@@ -63,10 +63,15 @@ class Topic extends Frontend_Controller {
 	public function show() {
 		$topic_id = $this->uri->segment(3);
 		$topic = $this->topic->get($topic_id);
+		
 		$user_id = $topic->user_id;
 		$user = $this->user->get($user_id);
 		$topic->user->id = $user_id;
 		$topic->user->username = $user->username;
+		
+		$replies = $this->reply->get_topic_replies($topic_id);
+		$topic->replies = $replies;
+		
 		$this->data['topic'] = $topic;
 	}
 	
