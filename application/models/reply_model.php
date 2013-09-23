@@ -27,6 +27,6 @@ class Reply_Model extends MY_Model {
 	
 	public function get_topic_replies($topic_id) {
 		return $this->order_by('created_at', 'desc')
-					->get_by('topic_id', $topic_id);
+					->get_many_by('topic_id', $topic_id);
 	}
 }
