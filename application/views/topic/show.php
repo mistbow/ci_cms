@@ -1,5 +1,5 @@
 <div class="content-unit">
-	<div class="media"style="margin-top:10px;">
+	<div class="media"style="margin-top:10px;margin-bottom:10px;">
 	  <a class="pull-right" href="#" style="margin-right:40px;margin-bottom:10px;">
 	    <img class="media-object" src="/img/1.jpg" width="48" height="48" alt="...">
 	  </a>
