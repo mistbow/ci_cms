@@ -16,7 +16,9 @@ class Topic extends Frontend_Controller {
 		$offset = $per_page * ($now_page - 1);
 		if($offset < 0) $offset = 0;
 		$topics = $this->topic->get_topics_by_page($per_page, $offset);
-		$this->_append_user_info($topics);
+		
+		$this->_append_user_info($topics, 'user', 'user_id');
+		$this->_append_user_info($topics, 'reply_user', 'last_reply_user_id');
 		
 		$this->data['topics'] = $topics;
 		$this->pagination->initialize($config);
@@ -70,7 +72,7 @@ class Topic extends Frontend_Controller {
 		$topic->user->username = $user->username;
 		
 		$replies = $this->reply->get_topic_replies($topic_id);
-		$this->_append_user_info($replies);
+		$this->_append_user_info($replies, 'user', 'user_id');
 		$topic->replies = $replies;
 		
 		$this->data['topic'] = $topic;
@@ -96,16 +98,16 @@ class Topic extends Frontend_Controller {
 	/**
 	 * 加载用户信息
 	 */
-	private function _append_user_info(&$items) {
+	private function _append_user_info(&$items, $object_name, $user_field_name) {
 		if(!empty($items)) {
 			foreach ($items as $key => $value) {
-				$req[] = $value->user_id;
+				$req[] = $value->$user_field_name;
 			}
 			$users = $this->_get_users_by_ids($req);
 			
 			foreach ($items as $key => &$value) {
-				$user_id = $value->user_id;
-				$value->user = $users[$user_id];
+				$user_id = $value->$user_field_name;
+				$value->$object_name = $users[$user_id];
 			}
 		}
 	}

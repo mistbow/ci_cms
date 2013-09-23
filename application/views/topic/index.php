@@ -13,7 +13,10 @@
 		    <h4 class="media-heading">
 		    	<?php echo anchor('/topic/show/'.$topic->id, $topic->title); ?>
 		    </h4>
-		    <?php echo time_ago($topic->created_at) . " by " . $topic->user->username; ?> | 最后回复 6分钟前 by kxdd2002
+		    <?php echo time_ago($topic->created_at) 
+		    			. ' by ' . $topic->user->username
+						. ' | 最后回复 '.time_ago($topic->replied_at)
+						.' by '.$topic->reply_user->username; ?>
 		  </div>
 		</div>
 		<?php endforeach; ?>
