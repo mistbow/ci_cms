@@ -107,6 +107,9 @@ class Topic extends Frontend_Controller {
 			
 			foreach ($items as $key => &$value) {
 				$user_id = $value->$user_field_name;
+				if(!$user_id) {
+					continue;
+				}
 				$value->$object_name = $users[$user_id];
 			}
 		}

@@ -14,9 +14,13 @@
 		    	<?php echo anchor('/topic/show/'.$topic->id, $topic->title); ?>
 		    </h4>
 		    <?php echo time_ago($topic->created_at) 
-		    			. ' by ' . $topic->user->username
-						. ' | 最后回复 '.time_ago($topic->replied_at)
-						.' by '.$topic->reply_user->username; ?>
+		    			. ' by ' . $topic->user->username; ?>
+		    <?php 
+		    	if(isset($topic->reply_user)) {
+		    		echo  ' | 最后回复 '.time_ago($topic->replied_at)
+						.' by '.$topic->reply_user->username; 
+				} 
+			?>
 		  </div>
 		</div>
 		<?php endforeach; ?>
