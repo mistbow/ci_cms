@@ -36,11 +36,11 @@ class Topic_Model extends MY_Model {
 	}
 	
 	public function add_reply($topic_id, $user_id) {
-		$data = array(
-			'replies_count' => 'replies_count + 1',
-			'last_reply_user_id' => $user_id,
-			'replied_at' => time()
-        );
-		$this->update($topic_id, $data);
+		$res = $this->db->where('id', $topic_id)
+			->set('replies_count', 'replies_count+1', FALSE)
+			->set('last_reply_user_id', $user_id)
+			->set('replied_at', time())
+			->update($this->_table);
+		return $res;
 	}
 }
