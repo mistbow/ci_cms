@@ -16,3 +16,29 @@
 </br>
 
 </div>
+
+
+<div class="content-unit">
+<?php echo validation_errors(); ?>
+<?php 
+	$hidden = array(
+		'topic_id' => $topic->id
+	);
+	echo form_open('topic/reply','', $hidden);
+?>
+<table class="table">
+	<tr>
+		<td>
+			<?php echo form_textarea($data = array(
+              'name'        => 'body',
+              'id'          => 'body',
+              'value'       => $body,
+            )); ?>
+        </td>
+    </tr>
+    <tr>
+		<td><?php echo form_submit('submit', '回复', 'class="btn btn-primary"'); ?></td>
+	</tr>
+</table>
+<?php echo form_close();?>
+</div>

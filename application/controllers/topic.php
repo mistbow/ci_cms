@@ -43,13 +43,14 @@ class Topic extends Frontend_Controller {
 		}
 	}
 	
-	public function create_reply() {
+	public function reply() {
 		$user_id = $this->_check_logged_in();
 		$validate = $this->reply->create_validation;
 		$this->form_validation->set_rules($validate);
 		if ($this->form_validation->run() == TRUE) {
 			$topic_id = $this->input->post('topic_id');
     		if ($this->reply->create($topic_id, $user_id) !== FALSE) {
+    			$this->topic->add_reply($topic_id, $user_id);
     			redirect('topic/'.$topic_id);
     		}
     		else {
