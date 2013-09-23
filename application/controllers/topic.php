@@ -70,6 +70,7 @@ class Topic extends Frontend_Controller {
 		$topic->user->username = $user->username;
 		
 		$replies = $this->reply->get_topic_replies($topic_id);
+		$this->_append_user_info($replies);
 		$topic->replies = $replies;
 		
 		$this->data['topic'] = $topic;
@@ -95,18 +96,22 @@ class Topic extends Frontend_Controller {
 	/**
 	 * 加载用户信息
 	 */
-	private function _append_user_info(&$topics) {
-		if(!empty($topics)) {
-			foreach ($topics as $key => $value) {
+	private function _append_user_info(&$items) {
+		if(!empty($items)) {
+			foreach ($items as $key => $value) {
 				$req[] = $value->user_id;
 			}
-			$req = array_unique($req);
-			$users = $this->user->get_users_by_ids($req);
+			$users = $this->_get_users_by_ids($req);
 			
-			foreach ($topics as $key => &$value) {
+			foreach ($items as $key => &$value) {
 				$user_id = $value->user_id;
 				$value->user = $users[$user_id];
 			}
 		}
+	}
+	
+	private function _get_users_by_ids($ids) {
+		$req = array_unique($req);
+		$users = $this->user->get_users_by_ids($req);
 	}
 }

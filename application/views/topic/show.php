@@ -29,7 +29,8 @@
 		  </a>
 		  <div class="media-body">
 		    <h4 class="media-heading">
-		    	<a href="http://www.6bey.com/index.php/topic/show/13">求推荐ios教程</a>		    </h4>
+		    	<?php echo $reply->user->username . ' 回复于 ' . time_ago($reply->created_at); ?>
+		    </h4>
 		    	<?php echo $reply->body; ?>
 		  </div>
 		</div>
