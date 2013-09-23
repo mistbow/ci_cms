@@ -13,9 +13,6 @@ class Reply_Model extends MY_Model {
        array( 'field' => 'body',
 	       'label' => 'body',
 	       'rules' => 'required' ),
-       array( 'field' => 'user_id',
-	       'label' => 'user_id',
-	       'rules' => 'required' ),
 	);
 	
 	public function create($topic_id, $user_id) {

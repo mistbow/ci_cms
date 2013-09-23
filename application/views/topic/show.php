@@ -32,7 +32,6 @@
 			<?php echo form_textarea($data = array(
               'name'        => 'body',
               'id'          => 'body',
-              'value'       => $body,
             )); ?>
         </td>
     </tr>

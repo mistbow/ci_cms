@@ -51,11 +51,11 @@ class Topic extends Frontend_Controller {
 			$topic_id = $this->input->post('topic_id');
     		if ($this->reply->create($topic_id, $user_id) !== FALSE) {
     			$this->topic->add_reply($topic_id, $user_id);
-    			redirect('topic/'.$topic_id);
+    			redirect('topic/show/'.$topic_id);
     		}
     		else {
     			$this->session->set_flashdata('error', '参数错误');
-    			redirect('topic/'.$topic_id, 'refresh');
+    			redirect('topic/show/'.$topic_id, 'refresh');
     		}
 		}
 	}
