@@ -6,11 +6,16 @@ class Migration_Create_replies extends CI_Migration {
         $this->dbforge->drop_table('replies');
 		
 		$this->dbforge->add_field(array(
-			'topic_id' => array(
+			'id' => array(
                 'type' => 'MEDIUMINT',
                 'constraint' => '11',
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE
+            ),
+			'topic_id' => array(
+                'type' => 'MEDIUMINT',
+                'constraint' => '11',
+                'unsigned' => TRUE,
             ),
             'body' => array(
                 'type' => 'TEXT',
@@ -38,6 +43,7 @@ class Migration_Create_replies extends CI_Migration {
 				'null' => TRUE
 			),
 		));
+		$this->dbforge->add_key('id', TRUE);
         $this->dbforge->create_table('replies');
     }
     
