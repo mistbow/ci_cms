@@ -1,7 +1,7 @@
 <?php
 class Topic extends Frontend_Controller {
 	
-	protected $models = array('topic', 'user');
+	protected $models = array('topic', 'user', 'reply');
 	
 	function __construct() {
 		parent :: __construct();
@@ -39,6 +39,22 @@ class Topic extends Frontend_Controller {
     		else {
     			$this->session->set_flashdata('error', '账号或者密码错误');
     			redirect('topic/create', 'refresh');
+    		}
+		}
+	}
+	
+	public function create_reply() {
+		$user_id = $this->_check_logged_in();
+		$validate = $this->reply->create_validation;
+		$this->form_validation->set_rules($validate);
+		if ($this->form_validation->run() == TRUE) {
+			$topic_id = $this->input->post('topic_id');
+    		if ($this->reply->create($topic_id, $user_id) !== FALSE) {
+    			redirect('topic/'.$topic_id);
+    		}
+    		else {
+    			$this->session->set_flashdata('error', '参数错误');
+    			redirect('topic/'.$topic_id, 'refresh');
     		}
 		}
 	}
