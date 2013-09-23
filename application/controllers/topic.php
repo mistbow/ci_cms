@@ -111,7 +111,7 @@ class Topic extends Frontend_Controller {
 	}
 	
 	private function _get_users_by_ids($ids) {
-		$req = array_unique($req);
-		$users = $this->user->get_users_by_ids($req);
+		$req = array_unique($ids);
+		return $this->user->get_users_by_ids($req);
 	}
 }
