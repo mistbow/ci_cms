@@ -19,10 +19,12 @@ class Topic_Model extends MY_Model {
 	);
 	
 	public function create($user_id) {
+		$time = time();
 		$topic_id = $this->insert(array(
 			'title' => $this->input->post('title'),
 			'body' => $this->input->post('body'),
-			'created_at' => time(),
+			'replied_at' => $time,
+			'created_at' => $time,
 			'user_id' => $user_id,
 		));
 		return $topic_id;
