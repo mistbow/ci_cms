@@ -135,7 +135,7 @@ class User_Model extends MY_Model {
 	
 	public function get_user_by_id($id, $with_avatar = true) {
 		$user = $this->get($id);
-		if($user != false && $with_avator) {
+		if($user != false && $with_avatar) {
 			$user_info = $this->userinfo->get_by('user_id', $id);
 			$user->avatar = $user_info->avatar;
 		}
