@@ -67,7 +67,7 @@ class Topic extends Frontend_Controller {
 		$topic = $this->topic->get($topic_id);
 		
 		$user_id = $topic->user_id;
-		$user = $this->user->get($user_id);
+		$user = $this->user->get_user_by_id($user_id);
 		$topic->user->id = $user_id;
 		$topic->user->username = $user->username;
 		

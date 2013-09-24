@@ -133,6 +133,14 @@ class User_Model extends MY_Model {
 		return hash('sha256', $string . config_item('encryption_key'));
 	}
 	
+	public function get_user_by_id($id, $with_avator = true) {
+		$user = $this->get($id);
+		if($user != false) {
+			$user_info = $this->userinfo->get_by('user_id', $id);
+			$user->avator = $user_info->avator;
+		}
+		return $user;
+	}
 	public function get_users_by_ids($ids, $with_avatar = true) {
 		$res = array();
 		if(!is_array($ids) || empty($ids)) {
@@ -152,8 +160,6 @@ class User_Model extends MY_Model {
 				$res[$value->user_id]->avatar = $value->avatar;
 			}
 		}
-		
-		
 		
 		return $res;
 		
