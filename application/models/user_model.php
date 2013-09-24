@@ -147,7 +147,7 @@ class User_Model extends MY_Model {
 			$res[$value->id] = $value;
 		}
 		if($with_avatar) {
-			$userinfos = $this->userinfo_model->get_userinfo_by_user_ids($ids);
+			$userinfos = $this->userinfo->get_userinfo_by_user_ids($ids);
 			foreach ($userinfos as $key => $value) {
 				$res[$value->user_id]->avatar = $value->avatar;
 			}
