@@ -133,7 +133,7 @@ class User_Model extends MY_Model {
 		return hash('sha256', $string . config_item('encryption_key'));
 	}
 	
-	public function get_users_by_ids($ids) {
+	public function get_users_by_ids($ids, $with_avatar = true) {
 		$res = array();
 		if(!is_array($ids) || empty($ids)) {
 			return $res;
@@ -146,6 +146,14 @@ class User_Model extends MY_Model {
 		foreach ($users as $key => $value) {
 			$res[$value->id] = $value;
 		}
+		if($with_avatar) {
+			$userinfos = $this->userinfo_model->get_userinfo_by_user_ids($ids);
+			foreach ($userinfos as $key => $value) {
+				$res[$value->user_id]->avatar = $value->avatar;
+			}
+		}
+		
+		
 		
 		return $res;
 		
