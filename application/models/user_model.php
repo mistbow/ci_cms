@@ -133,11 +133,11 @@ class User_Model extends MY_Model {
 		return hash('sha256', $string . config_item('encryption_key'));
 	}
 	
-	public function get_user_by_id($id, $with_avator = true) {
+	public function get_user_by_id($id, $with_avatar = true) {
 		$user = $this->get($id);
-		if($user != false) {
+		if($user != false && $with_avator) {
 			$user_info = $this->userinfo->get_by('user_id', $id);
-			$user->avator = $user_info->avator;
+			$user->avatar = $user_info->avatar;
 		}
 		return $user;
 	}

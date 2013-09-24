@@ -68,8 +68,7 @@ class Topic extends Frontend_Controller {
 		
 		$user_id = $topic->user_id;
 		$user = $this->user->get_user_by_id($user_id);
-		$topic->user->id = $user_id;
-		$topic->user->username = $user->username;
+		$topic->user = $user;
 		
 		$replies = $this->reply->get_topic_replies($topic_id);
 		$this->_append_user_info($replies, 'user', 'user_id');
