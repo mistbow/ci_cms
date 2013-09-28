@@ -135,13 +135,13 @@ class User_Model extends MY_Model {
 	
 	public function get_user_by_id($id, $with_user_info = true) {
 		$user = $this->get($id);
-		if($user != false && $with_avatar) {
+		if($user != false && $with_user_info) {
 			$user_info = $this->userinfo->get_by('user_id', $id);
-			$user = $user_info;
+			$user->userInfo = $user_info;
 		}
 		return $user;
 	}
-	public function get_users_by_ids($ids, $with_avatar = true) {
+	public function get_users_by_ids($ids, $with_user_info = true) {
 		$res = array();
 		if(!is_array($ids) || empty($ids)) {
 			return $res;
@@ -154,10 +154,10 @@ class User_Model extends MY_Model {
 		foreach ($users as $key => $value) {
 			$res[$value->id] = $value;
 		}
-		if($with_avatar) {
+		if($with_user_info) {
 			$userinfos = $this->userinfo->get_userinfo_by_user_ids($ids);
 			foreach ($userinfos as $key => $value) {
-				$res[$value->user_id] = $value;
+				$res[$value->user_id]->userInfo = $value;
 			}
 		}
 		

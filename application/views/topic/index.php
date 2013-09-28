@@ -7,7 +7,7 @@
 				<?php echo $topic->replies_count; ?>
 			</span>
 		  <a class="pull-left" href="#">
-		    <img class="media-object" src="<?php echo  $topic->user->avatar;?>" width="48" height="48" alt="...">
+		    <img class="media-object" src="<?php echo  $topic->user->userInfo->avatar;?>" width="48" height="48" alt="...">
 		  </a>
 		  <div class="media-body">
 		    <h4 class="media-heading">

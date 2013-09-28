@@ -1,7 +1,7 @@
 <div class="content-unit">
 	<div class="media"style="margin:10px 0 10px 20px;">
 	  <a class="pull-right" href="#" style="margin-right:40px;margin-bottom:10px;">
-	    <img class="media-object" src="<?php echo $topic->user->avatar; ?>" width="48" height="48" alt="...">
+	    <img class="media-object" src="<?php echo $topic->user->userInfo->avatar; ?>" width="48" height="48" alt="...">
 	  </a>
 	  <div class="media-body" style="margin-top:10px;">
 	    <h4 class="media-heading">
@@ -27,7 +27,7 @@
 	<?php if(count($topic->replies) > 0) : foreach($topic->replies as $reply): ?>
 		<div class="media">
 		  <a class="pull-left" href="#">
-		    <img class="media-object" src="<?php echo $reply->user->avatar;?>" width="48" height="48" alt="...">
+		    <img class="media-object" src="<?php echo $reply->user->userInfo->avatar;?>" width="48" height="48" alt="...">
 		  </a>
 		  <div class="media-body">
 		    <h4 class="media-heading">
