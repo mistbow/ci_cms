@@ -7,6 +7,9 @@ a {
 	text-decoration: none;
 	font-family:Microsoft YaHei;
 }
+ul {
+	list-style: none;
+}
 
 li.subject {
 	margin: 0 10px;
@@ -117,4 +120,19 @@ em, i {
 /* 帖子列表 横线向下一点 */
 .media {
 	padding-bottom: 5px;
+}
+
+.userinfo li {
+font-size: 14px;
+line-height: 180%;
+border-bottom: 1px dashed #eee;
+}
+
+.userinfo li label {
+color: #999;
+font-size: 12px;
+margin-right: 8px;
+display: inline-block;
+width: 100px;
+text-align: right;
 }
