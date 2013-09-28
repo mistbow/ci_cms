@@ -1,6 +1,6 @@
 <div class="content-unit">
 	<div class="media"style="margin:10px 0 10px 20px;">
-	  <a class="pull-right" href="#" style="margin-right:40px;margin-bottom:10px;">
+	  <a class="pull-right" href="<?php echo "/user/show/".$topic->user->id;?>" style="margin-right:40px;margin-bottom:10px;">
 	    <img class="media-object" src="<?php echo $topic->user->userInfo->avatar; ?>" width="48" height="48" alt="...">
 	  </a>
 	  <div class="media-body" style="margin-top:10px;">
@@ -26,7 +26,7 @@
 	
 	<?php if(count($topic->replies) > 0) : foreach($topic->replies as $reply): ?>
 		<div class="media">
-		  <a class="pull-left" href="#">
+		  <a class="pull-left" href="<?php echo "/user/show/".$reply->user->id;?>">
 		    <img class="media-object" src="<?php echo $reply->user->userInfo->avatar;?>" width="48" height="48" alt="...">
 		  </a>
 		  <div class="media-body">
