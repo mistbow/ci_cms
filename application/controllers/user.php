@@ -5,11 +5,11 @@ class User extends Frontend_Controller {
 
 	function __construct() {
 		parent::__construct();
+		$this->load->library('user_utils');
 	}
 
 	public function index() {
 		$this -> data['subview'] = 'components/login_subview';
-		$this->load->library('user_utils');
 		$this -> view = 'user/login.php';
 	}
 
