@@ -254,7 +254,7 @@ $config['encryption_key'] = 'aabeyaaa';
 |
 */
 $config['sess_cookie_name']		= 'bey_sessions';
-$config['sess_expiration']		= 7200;
+$config['sess_expiration']		= 0;
 $config['sess_expire_on_close']	= TRUE;
 $config['sess_encrypt_cookie']	= TRUE;
 $config['sess_use_database']	= TRUE;
