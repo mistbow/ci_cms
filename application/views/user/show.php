@@ -1,6 +1,6 @@
 <div class="content-unit">
 	<div class="pull-right" style="text-align:center;">
-      <a href="<?php echo anchor("/user/show/$user->id", $user->username); ?>">
+      <a href="<?php echo "/user/show/".$user->id; ?>">
       	<img src="<?php echo $user->userInfo->avatar; ?>" 
       		style="width:120px;height:120px;">
       </a>
