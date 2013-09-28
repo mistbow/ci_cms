@@ -68,8 +68,10 @@ class User extends Frontend_Controller {
 		} else {
 			$user_id = $this -> uri -> segment(3);
 		}
-		
-		$this->data['user_id'] = $user_id;
+		$user = $this->user->get_user_by_id($user_id);
+		unset($user->password);
+		unset($user->status);
+		$this->data['user'] = $user;
 	}
 
 }

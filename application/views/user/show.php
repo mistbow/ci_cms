@@ -1,2 +1,2 @@
 <?php 
-echo $user_id; ?>
+var_dump($user); ?>
