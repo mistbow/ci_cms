@@ -62,7 +62,7 @@ class User extends Frontend_Controller {
 	public function show() {
 		if ($this -> uri -> segment(3) === FALSE) {
 			$user_id = $this->user_utils->get_current_user_id();
-			if($user_id === FALSEL) {
+			if($user_id === FALSE) {
 				echo '404';exit;
 			}
 		} else {
