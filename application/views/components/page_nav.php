@@ -37,7 +37,7 @@
 						<b class="caret"></b>
 					</a>
 					<ul class="dropdown-menu">
-					  <li><a href="#">个人资料</a></li>
+					  <li><a href="/user/show">个人资料</a></li>
 					  <li><a href="#">个人空间</a></li>
 					  <li><a href="#">我的习题集</a></li>
 					  <li class="divider">&nbsp;</li>
