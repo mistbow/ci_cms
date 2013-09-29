@@ -52,6 +52,7 @@ class Topic_Model extends MY_Model {
 		}
 		$update_data['title'] = $this->input->post('title');
 		$update_data['body'] = $this->input->post('body');
+		$update_data['updated_at'] = time();
 		return $this->update($topic_id, $update_data);
 	}
 	

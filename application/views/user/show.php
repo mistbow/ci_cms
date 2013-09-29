@@ -21,7 +21,7 @@
 		</li>
 		<li>
 			<label>注册时间</label>
-			<span><?php echo $user->userInfo->created_on; ?></span>
+			<span><?php echo unix_to_human($user->userInfo->created_on); ?></span>
 		</li>
 		<li>
 			<label>学校</label>
