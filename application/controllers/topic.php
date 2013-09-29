@@ -97,7 +97,7 @@ class Topic extends Frontend_Controller {
 		$this->form_validation->set_rules($validate);
     	if ($this->form_validation->run() == TRUE) {
     		$topic_id = $this->input->post('id');
-    		if ($this->topic->update($user_id) !== FALSE) {
+    		if ($this->topic->update_topic($user_id) !== FALSE) {
     			redirect('topic/show/'.$topic_id);
     		}
     		else {

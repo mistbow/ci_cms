@@ -42,17 +42,17 @@ class Topic_Model extends MY_Model {
 		return $topic_id;
 	}
 
-	public function update($user_id) {
+	public function update_topic($user_id) {
 		$topic_id = $this->input->post('id');
 		$data['id'] = $topic_id;
 		$data['user_id'] = $user_id;
-		$res = $this->topic->get_by($data);
+		$res = $this->get_by($data);
 		if($res == null) {
 			return FALSE;
 		}
 		$update_data['title'] = $this->input->post('title');
 		$update_data['body'] = $this->input->post('body');
-		return $this->topic->update($topic_id, $update_data);
+		return $this->update($topic_id, $update_data);
 	}
 	
 	public function get_topics_by_page($per_page, $offset) {
