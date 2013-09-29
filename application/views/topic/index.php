@@ -4,7 +4,7 @@
 		<?php foreach($topics as $topic) : ?>
 		<div class="media">
 			<span class="label label-info pull-right" style="margin-top:5px;">
-				<?php echo $topic->replies_count; ?>
+				<?php echo anchor('/topic/show/'.$topic->id, $topic->replies_count); ?>
 			</span>
 		  <a class="pull-left" href="<?php echo "/user/show/".$topic->user->id;?>">
 		    <img class="media-object" src="<?php echo  $topic->user->userInfo->avatar;?>" width="48" height="48" alt="...">
