@@ -1,5 +1,8 @@
 <div class="content-unit">
-<?php echo form_open('/topic/update'); ?>
+<?php 
+	$hidden = array('id' => $topic->id);
+	echo form_open('/topic/update', '', $hidden); 
+?>
 <table>
 	<tr>
 		<td>

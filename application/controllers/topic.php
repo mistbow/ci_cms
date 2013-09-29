@@ -92,7 +92,19 @@ class Topic extends Frontend_Controller {
 	}
 	
 	public function update() {
-		
+		$user_id = $this->_check_logged_in();
+		$validate = $this->topic->update_validation;
+		$this->form_validation->set_rules($validate);
+    	if ($this->form_validation->run() == TRUE) {
+    		$topic_id = $this->input->post('id');
+    		if ($this->topic->update($user_id) !== FALSE) {
+    			redirect('topic/show'.$topic_id);
+    		}
+    		else {
+    			$this->session->set_flashdata('error', '账号或者密码错误');
+    			redirect('topic/show'.$topic_id);
+    		}
+		}
 	}
 	
 	private function _check_logged_in() {
