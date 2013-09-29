@@ -78,7 +78,17 @@ class Topic extends Frontend_Controller {
 	}
 	
 	public function edit() {
-		
+		$topic_id = $this->uri->segment(3);
+		$topic = $this->topic->get($topic_id);
+		if($topic == null) {
+			echo '404';exit;
+		}
+		$user_id = $topic->user_id;
+		if(is_mine($this->session, $user_id)) {
+			$this->data['topic'] = $topic;
+		} else {
+			echo '404';exit;
+		}
 	}
 	
 	public function update() {
