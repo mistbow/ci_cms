@@ -136,3 +136,13 @@ display: inline-block;
 width: 100px;
 text-align: right;
 }
+
+/* post edit css*/
+.tools a {
+	padding-left: 5px;
+}
+.post_hidden {
+	text-align: right;
+	height: 16px;
+	overflow: hidden;
+}
