@@ -13,6 +13,7 @@
 	<div style="margin-left:20px;">
 		<?php echo $topic->body; ?>
 	</div>
+<?php if(is_mine($this->session, $topic->user->id)) : ?>
 <div class="tools pull-right">
         
     <a class="likeable" data-count="0" data-id="14457" data-state="" data-type="Topic" href="#" onclick="return App.likeable(this);" rel="twipsy" data-original-title="喜欢">
@@ -20,15 +21,16 @@
     	<span>喜欢</span>
     </a>
     <a class="icon small_bookmark" data-id="14457" href="#" onclick="return Topics.favorite(this);" rel="twipsy" data-original-title="收藏"></a>
-    <a class="icon small_edit" href="/topics/14457/edit" title="修改本帖">
+    <a class="icon small_edit" href="<?php echo "/topic/edit/".$topic->user->id;?>" title="修改本帖">
 		<span class="glyphicon glyphicon-check"></span>
     </a>
-    <a class="icon small_delete" data-confirm="确定要删除么？" data-method="delete" href="/topics/14457" rel="nofollow" title="删除本帖">
+    <a class="icon small_delete" data-confirm="确定要删除么？" data-method="delete" href="<?php echo "/topic/delete/".$topic->user->id;?>" rel="nofollow" title="删除本帖">
     	<span class="glyphicon glyphicon-trash"></span>
     </a>
 </div>
 
 <div class="post_hidden"></div>
+<?php endif; ?>
 
 </div>
 
