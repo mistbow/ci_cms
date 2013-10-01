@@ -84,7 +84,7 @@ class Topic extends Frontend_Controller {
 			echo '404';exit;
 		}
 		$user_id = $topic->user_id;
-		if(is_mine($this->session, $user_id)) {
+		if(is_mine($user_id)) {
 			$this->data['topic'] = $topic;
 		} else {
 			echo '404';exit;

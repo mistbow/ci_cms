@@ -13,7 +13,7 @@
 	<div style="margin-left:20px;">
 		<?php echo $topic->body; ?>
 	</div>
-<?php if(is_mine($this->session, $topic->user->id)) : ?>
+<?php if(is_mine($topic->user->id)) : ?>
 <div class="tools pull-right">
         
     <a class="likeable" data-count="0" data-id="14457" data-state="" data-type="Topic" href="#" onclick="return App.likeable(this);" rel="twipsy" data-original-title="喜欢">
