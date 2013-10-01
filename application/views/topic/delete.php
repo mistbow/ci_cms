@@ -1,0 +1,1 @@
+<h2><?php echo '删除'.$result; ?></h2>

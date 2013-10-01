@@ -107,6 +107,21 @@ class Topic extends Frontend_Controller {
 		}
 	}
 	
+	public function delete() {
+		$topic_id = $this->uri->segment(3);
+		$topic = $this->topic->get($topic_id);
+		if($topic == null) {
+			echo '404';exit;
+		}
+		$user_id = $topic->user_id;
+		if(is_mine($user_id)) {
+			$result = $this->topic->delete($topic_id);
+			$this->data['result'] = $result;
+		} else {
+			echo '404';exit;
+		}
+	}
+	
 	private function _check_logged_in() {
 		$user_id = $this->session->userdata('id');
 		$logged_in = $this->session->userdata('loggedin');
