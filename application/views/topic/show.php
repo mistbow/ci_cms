@@ -24,7 +24,7 @@
     <a class="icon small_edit" href="<?php echo "/topic/edit/".$topic->id;?>" title="修改本帖">
 		<span class="glyphicon glyphicon-check"></span>
     </a>
-    <a class="icon small_delete" data-confirm="确定要删除么？" data-method="delete" href="<?php echo "/topic/delete/".$topic->user->id;?>" rel="nofollow" title="删除本帖">
+    <a class="icon small_delete" data-confirm="确定要删除么？" data-method="delete" href="<?php echo "/topic/delete/".$topic->id;?>" rel="nofollow" title="删除本帖">
     	<span class="glyphicon glyphicon-trash"></span>
     </a>
 </div>
