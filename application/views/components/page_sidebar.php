@@ -6,7 +6,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading">微信二维码</div>
 	<div class="panel-body" >
-		<img src="<?php echo base_url() . '/img/8cm.jpg'; ?>" height="230px" width="230px"/>
+		<img  class=pull-center src="<?php echo base_url() . '/img/8cm.jpg'; ?>" height="100%" width="100%"/>
 		<h4 class="text-center">微信号：calvin6bey</h4>
 	</div>
 </div>
