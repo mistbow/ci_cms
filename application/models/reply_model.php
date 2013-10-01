@@ -29,4 +29,8 @@ class Reply_Model extends MY_Model {
 		return $this->order_by('created_at', 'desc')
 					->get_many_by('topic_id', $topic_id);
 	}
+	
+	public function delete_by_topic_id($topic_id) {
+		return $this->delete_by('topic_id', $topic_id);
+	}
 }

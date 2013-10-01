@@ -115,8 +115,10 @@ class Topic extends Frontend_Controller {
 		}
 		$user_id = $topic->user_id;
 		if(is_mine($user_id)) {
-			$result = $this->topic->delete($topic_id);
-			$this->data['result'] = $result;
+			$reply_result = $this->reply->delete_by_topic_id($topic_id);
+			$topic_result = $this->topic->delete($topic_id);
+			$this->data['reply_result'] = $reply_result;
+			$this->data['topic_result'] = $topic_result;
 		} else {
 			echo '404';exit;
 		}
