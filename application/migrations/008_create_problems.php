@@ -46,7 +46,7 @@ class Migration_Create_problems extends CI_Migration {
                 'constraint' => '1',
                 'default' => 0,
             ),
-			'last_reply_user_id' => array(
+			'last_solution_user_id' => array(
 				'type' => 'MEDIUMINT',
                 'constraint' => '11',
                 'unsigned' => TRUE,
