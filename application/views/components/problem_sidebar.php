@@ -1,6 +1,6 @@
 <div class="siderbar-unit" style="text-align:center;">
   <?php echo anchor(base_url() . 'problem/newproblem'
-  		, '发布新帖', array('class'=>"btn btn-success")) ?>
+  		, '我要提问', array('class'=>"btn btn-success")) ?>
 </div>
 			    
 <div class="panel panel-default">
