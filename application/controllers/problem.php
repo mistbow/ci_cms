@@ -66,7 +66,7 @@ class Problem extends Frontend_Controller {
 		
 		$solutions = $this->solution->get_problem_solutions($problem_id);
 		append_user_info($solutions, 'user', 'user_id');
-		$problem->$solutions = $solutions;
+		$problem->solutions = $solutions;
 		
 		$this->data['problem'] = $problem;
 	}
