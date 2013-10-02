@@ -2,6 +2,7 @@
 class Problem extends Frontend_Controller {
 	
 	protected $models = array('problem');
+	
 	public $create_validation = array(
 		array( 'field' => 'title',
                'label' => 'title',
@@ -28,14 +29,14 @@ class Problem extends Frontend_Controller {
 	
 	public function create() {
 		$user_id = get_current_user_id_and_force_login();
-		$this->form_validation->set_rules($this->$create_validation);
+		$this->form_validation->set_rules($this->create_validation);
     	if ($this->form_validation->run() == TRUE) {
     		if ($this->problem->create($user_id) !== FALSE) {
     			redirect('problem/index');
     		}
     		else {
     			$this->session->set_flashdata('error', '账号或者密码错误');
-    			redirect('problem/create', 'refresh');
+    			redirect('problem/newproblem', 'refresh');
     		}
 		}
 	}

@@ -9,37 +9,17 @@ class Problem_Model extends MY_Model {
         parent::__construct();
 	}
 	
-	public $create_validation = array(
-		array( 'field' => 'title',
-               'label' => 'title',
-               'rules' => 'required' ),
-        array( 'field' => 'body',
-               'label' => 'body',
-               'rules' => 'required' ),
-	);
-	
-	public $update_validation = array(
-		array( 'field' => 'id',
-               'label' => 'id',
-               'rules' => 'required' ),
-		array( 'field' => 'title',
-               'label' => 'title',
-               'rules' => 'required' ),
-        array( 'field' => 'body',
-               'label' => 'body',
-               'rules' => 'required' ),
-	);
-	
 	public function create($user_id) {
 		$time = time();
-		$topic_id = $this->insert(array(
+		$problem_id = $this->insert(array(
 			'title' => $this->input->post('title'),
 			'body' => $this->input->post('body'),
+			'score' => $this->input->post('score'),
 			'replied_at' => $time,
 			'created_at' => $time,
 			'user_id' => $user_id,
 		));
-		return $topic_id;
+		return $problem_id;
 	}
 
 	public function update_problem($user_id) {
