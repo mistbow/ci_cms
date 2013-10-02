@@ -21,6 +21,20 @@ class Problem extends Frontend_Controller {
 	}
     
     public function index() {
+    	$config['base_url'] =  'http://6bey.com/problem/index/';
+    	$config['total_rows'] = $this->problem->count_all();
+		$per_page = $this->config->item('per_page');
+		$now_page = intval($this->uri->segment(3));
+		$offset = $per_page * ($now_page - 1);
+		if($offset < 0) $offset = 0;
+		$problems = $this->problem->get_problems_by_page($per_page, $offset);
+		
+		$this->append_user_info($problems, 'user', 'user_id');
+		$this->append_user_info($problems, 'reply_user', 'last_reply_user_id');
+		
+		$this->data['topics'] = $problems;
+		$this->pagination->initialize($config);
+        $this->data['links'] = $this->pagination->create_links();
     }
 	
 	public function newproblem() {

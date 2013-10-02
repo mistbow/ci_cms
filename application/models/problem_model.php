@@ -2,8 +2,8 @@
 
 class Problem_Model extends MY_Model {
 	
-	protected $home_page_columns = 'id, node_id, title, user_id, replies_count, last_reply_user_id
-			, replied_at, created_at, updated_at';
+	protected $home_page_columns = 'id, title, user_id, solutions_count, score, issolve
+	, last_reply_user_id, replied_at, created_at, updated_at';
 	
 	public function __construct() {
         parent::__construct();
@@ -36,7 +36,7 @@ class Problem_Model extends MY_Model {
 		return $this->update($topic_id, $update_data);
 	}
 	
-	public function get_topics_by_page($per_page, $offset) {
+	public function get_problems_by_page($per_page, $offset) {
 		return $this->select($this->home_page_columns)
 					->order_by(array('replied_at' => 'desc', 'created_at' => 'desc'))
 					->limit($per_page, $offset)
