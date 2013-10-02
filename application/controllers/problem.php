@@ -18,6 +18,7 @@ class Problem extends Frontend_Controller {
 	
 	function __construct() {
 		parent :: __construct();
+		$this->load->library('pagination');
 	}
     
     public function index() {
