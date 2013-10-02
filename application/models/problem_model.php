@@ -45,7 +45,7 @@ class Problem_Model extends MY_Model {
 	
 	public function add_solution($problem_id, $user_id) {
 		$res = $this->db->where('id', $problem_id)
-			->set('replies_count', 'solutions_count_count+1', FALSE)
+			->set('solutions_count', 'solutions_count+1', FALSE)
 			->set('last_reply_user_id', $user_id)
 			->set('replied_at', time())
 			->update($this->_table);
