@@ -32,3 +32,4 @@
 <div class="post_hidden"></div>
 <?php endif; ?>
 
+</div><!-- end content-unit-->
