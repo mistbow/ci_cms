@@ -15,8 +15,8 @@
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
 				<li class="active"><?php echo anchor('topic/index', '学习社区'); ?></li>
+				<li class="active"><?php echo anchor('problem/index', '问答社区'); ?></li>
 				<li class="active"><?php echo anchor('exercise/index', '习题精讲'); ?></li>
-				<li class="active"><?php echo anchor('ask/index', '问答社区'); ?></li>
 				<li class="active"><?php echo anchor('problem/index', '大题库'); ?></li>
 				
 			</ul>
