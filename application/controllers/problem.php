@@ -16,7 +16,7 @@ class Problem extends Frontend_Controller {
                
 	);
 	
-	public $reply_create_validation = array(
+	public $solution_create_validation = array(
         array( 'field' => 'problem_id',
            'label' => 'problem_id',
            'rules' => 'required' ),
