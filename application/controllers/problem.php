@@ -33,7 +33,7 @@ class Problem extends Frontend_Controller {
 		append_user_info($problems, 'user', 'user_id');
 		append_user_info($problems, 'reply_user', 'last_reply_user_id');
 		
-		$this->data['topics'] = $problems;
+		$this->data['problems'] = $problems;
 		$this->pagination->initialize($config);
         $this->data['links'] = $this->pagination->create_links();
     }
