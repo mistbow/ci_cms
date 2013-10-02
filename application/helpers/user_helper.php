@@ -36,7 +36,7 @@ if (!function_exists('append_user_info')) {
 			foreach ($items as $key => $value) {
 				$req[] = $value->$user_field_name;
 			}
-			$users = $this->get_users_by_ids($req);
+			$users = get_users_by_ids($req);
 			
 			foreach ($items as $key => &$value) {
 				$user_id = $value->$user_field_name;
@@ -50,8 +50,8 @@ if (!function_exists('append_user_info')) {
 }
 
 if (!function_exists('get_users_by_ids')) {
-	$CI =& get_instance();
 	function get_users_by_ids($ids) {
+		$CI =& get_instance();
 		$req = array_unique($ids);
 		return $CI->user->get_users_by_ids($req);
 	}

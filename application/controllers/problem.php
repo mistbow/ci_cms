@@ -1,7 +1,7 @@
 <?php
 class Problem extends Frontend_Controller {
 	
-	protected $models = array('problem');
+	protected $models = array('problem', 'user');
 	
 	public $create_validation = array(
 		array( 'field' => 'title',
@@ -29,8 +29,8 @@ class Problem extends Frontend_Controller {
 		if($offset < 0) $offset = 0;
 		$problems = $this->problem->get_problems_by_page($per_page, $offset);
 		
-		$this->append_user_info($problems, 'user', 'user_id');
-		$this->append_user_info($problems, 'reply_user', 'last_reply_user_id');
+		append_user_info($problems, 'user', 'user_id');
+		append_user_info($problems, 'reply_user', 'last_reply_user_id');
 		
 		$this->data['topics'] = $problems;
 		$this->pagination->initialize($config);
