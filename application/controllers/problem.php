@@ -1,7 +1,7 @@
 <?php
 class Problem extends Frontend_Controller {
 	
-	protected $models = array('problem', 'user');
+	protected $models = array('problem', 'user', 'solution');
 	
 	public $create_validation = array(
 		array( 'field' => 'title',
@@ -64,9 +64,9 @@ class Problem extends Frontend_Controller {
 		$user = $this->user->get_user_by_id($user_id);
 		$problem->user = $user;
 		
-		// $replies = $this->reply->get_problem_replies($problem_id);
-		// append_user_info($replies, 'user', 'user_id');
-		// $problem->replies = $replies;
+		$solutions = $this->solution->get_problem_solutions($problem_id);
+		append_user_info($solutions, 'user', 'user_id');
+		$problem->$solutions = $solutions;
 		
 		$this->data['problem'] = $problem;
 	}
