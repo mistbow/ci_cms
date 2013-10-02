@@ -67,7 +67,7 @@
 	$hidden = array(
 		'problem_id' => $problem->id
 	);
-	echo form_open('problem/solution','', $hidden);
+	echo form_open('problem/reply','', $hidden);
 ?>
 <table class="table">
 	<tr>
