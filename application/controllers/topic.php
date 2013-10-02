@@ -17,8 +17,8 @@ class Topic extends Frontend_Controller {
 		if($offset < 0) $offset = 0;
 		$topics = $this->topic->get_topics_by_page($per_page, $offset);
 		
-		$this->_append_user_info($topics, 'user', 'user_id');
-		$this->_append_user_info($topics, 'reply_user', 'last_reply_user_id');
+		append_user_info($topics, 'user', 'user_id');
+		append_user_info($topics, 'reply_user', 'last_reply_user_id');
 		
 		$this->data['topics'] = $topics;
 		$this->pagination->initialize($config);
@@ -26,7 +26,7 @@ class Topic extends Frontend_Controller {
     }
 	
 	public function newtopic() {
-		$this->_check_logged_in();
+		get_current_user_id_and_force_login();
 		$this->view = 'topic/new.php';
 	}
     
@@ -124,37 +124,4 @@ class Topic extends Frontend_Controller {
 		}
 	}
 	
-	private function _check_logged_in() {
-		$user_id = $this->session->userdata('id');
-		$logged_in = $this->session->userdata('loggedin');
-		if(!$logged_in || empty($user_id)) {
-			redirect('qq/login');	
-		}
-		return $user_id;
-	}
-	
-	/**
-	 * 加载用户信息
-	 */
-	private function _append_user_info(&$items, $object_name, $user_field_name) {
-		if(!empty($items)) {
-			foreach ($items as $key => $value) {
-				$req[] = $value->$user_field_name;
-			}
-			$users = $this->_get_users_by_ids($req);
-			
-			foreach ($items as $key => &$value) {
-				$user_id = $value->$user_field_name;
-				if(!$user_id) {
-					continue;
-				}
-				$value->$object_name = $users[$user_id];
-			}
-		}
-	}
-	
-	private function _get_users_by_ids($ids) {
-		$req = array_unique($ids);
-		return $this->user->get_users_by_ids($req);
-	}
 }
