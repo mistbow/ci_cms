@@ -55,5 +55,20 @@ class Problem extends Frontend_Controller {
     		}
 		}
 	}
+	
+	public function show() {
+		$problem_id = $this->uri->segment(3);
+		$problem = $this->problem->get($problem_id);
+		
+		$user_id = $problem->user_id;
+		$user = $this->user->get_user_by_id($user_id);
+		$problem->user = $user;
+		
+		$replies = $this->reply->get_problem_replies($problem_id);
+		append_user_info($replies, 'user', 'user_id');
+		$problem->replies = $replies;
+		
+		$this->data['problem'] = $problem;
+	}
     
 }
