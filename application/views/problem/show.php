@@ -33,3 +33,54 @@
 <?php endif; ?>
 
 </div><!-- end content-unit-->
+
+
+<?php if($problem->solutions_count != 0): ?>
+<div class="content-unit">
+	
+	<div class="media">
+	  共<?php echo $problem->solutions_count; ?>条回复
+	</div>
+	
+	<?php if(count($problem->solutions) > 0) : foreach($problem->solutions as $solution): ?>
+		<div class="media">
+		  <a class="pull-left" href="<?php echo "/user/show/".$solution->user->id;?>">
+		    <img class="media-object" src="<?php echo $solution->user->userInfo->avatar;?>" width="48" height="48" alt="...">
+		  </a>
+		  <div class="media-body">
+		    <h4 class="media-heading">
+		    	<?php echo $solution->user->username . ' 回复于 ' . time_ago($solution->created_at); ?>
+		    </h4>
+		    	<?php echo $solution->body; ?>
+		  </div>
+		</div>
+	<?php endforeach; ?>
+	<?php endif; ?>
+	
+</div>
+<?php endif; ?>
+
+
+<div class="content-unit">
+<?php echo validation_errors(); ?>
+<?php 
+	$hidden = array(
+		'problem_id' => $problem->id
+	);
+	echo form_open('problem/solution','', $hidden);
+?>
+<table class="table">
+	<tr>
+		<td>
+			<?php echo form_textarea($data = array(
+              'name'        => 'body',
+              'id'          => 'body',
+            )); ?>
+        </td>
+    </tr>
+    <tr>
+		<td><?php echo form_submit('submit', '回复', 'class="btn btn-primary"'); ?></td>
+	</tr>
+</table>
+<?php echo form_close();?>
+</div>
