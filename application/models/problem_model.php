@@ -23,8 +23,8 @@ class Problem_Model extends MY_Model {
 	}
 
 	public function update_problem($user_id) {
-		$topic_id = $this->input->post('id');
-		$data['id'] = $topic_id;
+		$problem_id = $this->input->post('id');
+		$data['id'] = $problem_id;
 		$data['user_id'] = $user_id;
 		$res = $this->get_by($data);
 		if($res == null) {
@@ -33,7 +33,7 @@ class Problem_Model extends MY_Model {
 		$update_data['title'] = $this->input->post('title');
 		$update_data['body'] = $this->input->post('body');
 		$update_data['updated_at'] = time();
-		return $this->update($topic_id, $update_data);
+		return $this->update($problem_id, $update_data);
 	}
 	
 	public function get_problems_by_page($per_page, $offset) {
@@ -43,9 +43,9 @@ class Problem_Model extends MY_Model {
 					->get_all();
 	}
 	
-	public function add_reply($topic_id, $user_id) {
-		$res = $this->db->where('id', $topic_id)
-			->set('replies_count', 'replies_count+1', FALSE)
+	public function add_solution($problem_id, $user_id) {
+		$res = $this->db->where('id', $problem_id)
+			->set('replies_count', 'solutions_count_count+1', FALSE)
 			->set('last_reply_user_id', $user_id)
 			->set('replied_at', time())
 			->update($this->_table);

@@ -16,6 +16,15 @@ class Problem extends Frontend_Controller {
                
 	);
 	
+	public $reply_create_validation = array(
+        array( 'field' => 'problem_id',
+           'label' => 'problem_id',
+           'rules' => 'required' ),
+       	array( 'field' => 'body',
+	       'label' => 'body',
+	       'rules' => 'required' ),
+	);
+	
 	function __construct() {
 		parent :: __construct();
 		$this->load->library('pagination');
@@ -31,7 +40,7 @@ class Problem extends Frontend_Controller {
 		$problems = $this->problem->get_problems_by_page($per_page, $offset);
 		
 		append_user_info($problems, 'user', 'user_id');
-		append_user_info($problems, 'reply_user', 'last_reply_user_id');
+		append_user_info($problems, 'solution_user', 'last_solution_user_id');
 		
 		$this->data['problems'] = $problems;
 		$this->pagination->initialize($config);
@@ -69,6 +78,22 @@ class Problem extends Frontend_Controller {
 		$problem->solutions = $solutions;
 		
 		$this->data['problem'] = $problem;
+	}
+	
+	public function reply() {
+		$user_id = get_current_user_id_and_force_login();
+		$this->form_validation->set_rules($this->solution_create_validation);
+		if ($this->form_validation->run() == TRUE) {
+			$problem_id = $this->input->post('problem_id');
+    		if ($this->solution->create($problem_id, $user_id) !== FALSE) {
+    			$this->problem->add_solution($problem_id, $user_id);
+    			redirect('problem/show/'.$problem_id);
+    		}
+    		else {
+    			$this->session->set_flashdata('error', '参数错误');
+    			redirect('problem/show/'.$problem_id, 'refresh');
+    		}
+		}
 	}
     
 }
