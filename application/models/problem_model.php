@@ -3,7 +3,7 @@
 class Problem_Model extends MY_Model {
 	
 	protected $home_page_columns = 'id, title, user_id, solutions_count, score, issolve
-	, last_reply_user_id, replied_at, created_at, updated_at';
+	, last_solution_user_id, replied_at, created_at, updated_at';
 	
 	public function __construct() {
         parent::__construct();
