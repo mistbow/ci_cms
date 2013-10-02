@@ -34,7 +34,7 @@ class Migration_Create_problems extends CI_Migration {
             	'type' => 'TINYINT',
             	'constraint' => '5',
                 'unsigned' => TRUE,
-                'default' => 0,
+                'default' => 3,
 			),
 			'category_id' => array(
                 'type' => 'TINYINT',
@@ -44,7 +44,7 @@ class Migration_Create_problems extends CI_Migration {
             'issolve' => array(
                 'type' => 'TINYINT',
                 'constraint' => '1',
-                'unsigned' => TRUE,
+                'default' => 0,
             ),
 			'last_reply_user_id' => array(
 				'type' => 'MEDIUMINT',
