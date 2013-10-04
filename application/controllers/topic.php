@@ -31,7 +31,7 @@ class Topic extends Frontend_Controller {
 	}
     
 	public function create() {
-		$user_id = $this->_check_logged_in();
+		$user_id = get_current_user_id_and_force_login();
 		$validate = $this->topic->create_validation;
 		$this->form_validation->set_rules($validate);
     	if ($this->form_validation->run() == TRUE) {
@@ -46,7 +46,7 @@ class Topic extends Frontend_Controller {
 	}
 	
 	public function reply() {
-		$user_id = $this->_check_logged_in();
+		$user_id = get_current_user_id_and_force_login();
 		$validate = $this->reply->create_validation;
 		$this->form_validation->set_rules($validate);
 		if ($this->form_validation->run() == TRUE) {
@@ -92,7 +92,7 @@ class Topic extends Frontend_Controller {
 	}
 	
 	public function update() {
-		$user_id = $this->_check_logged_in();
+		$user_id = get_current_user_id_and_force_login();
 		$validate = $this->topic->update_validation;
 		$this->form_validation->set_rules($validate);
     	if ($this->form_validation->run() == TRUE) {

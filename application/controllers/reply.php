@@ -32,7 +32,7 @@ class Reply extends Frontend_Controller {
 	}
 	
 	public function update() {
-		$user_id = $this->_check_logged_in();
+		$user_id = get_current_user_id_and_force_login();
 		$this->form_validation->set_rules($this->update_validation);
     	if ($this->form_validation->run() == TRUE) {
     		$reply_id = $this->input->post('id');
