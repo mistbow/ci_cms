@@ -49,6 +49,9 @@
 				<a class="icon small_edit" href="<?php echo "/reply/edit/".$reply->id;?>" title="修改回复">
 					<span class="glyphicon glyphicon-check"></span>
 			    </a>
+			    <a class="icon small_delete" data-confirm="确定要删除么？" data-method="delete" href="<?php echo "/reply/delete/".$reply->id;?>" rel="nofollow" title="删除回复">
+			    	<span class="glyphicon glyphicon-trash"></span>
+			    </a>
 			</div>
 			<?php endif; ?>
 	
