@@ -71,7 +71,7 @@ class Topic extends Frontend_Controller {
 		$topic->user = $user;
 		
 		$replies = $this->reply->get_topic_replies($topic_id);
-		$this->_append_user_info($replies, 'user', 'user_id');
+		append_user_info($replies, 'user', 'user_id');
 		$topic->replies = $replies;
 		
 		$this->data['topic'] = $topic;
