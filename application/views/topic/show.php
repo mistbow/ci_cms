@@ -86,6 +86,7 @@
 			<?php echo form_textarea($data = array(
               'name'        => 'body',
               'id'          => 'body',
+              'cols' => 100,
             )); ?>
         </td>
     </tr>

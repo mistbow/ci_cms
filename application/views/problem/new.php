@@ -8,7 +8,16 @@
 	</tr>
 	<tr>
 		<td>
-			<?php echo form_textarea('body') ?>
+			
+			<?php 
+				$data = array(
+	              'name'        => 'body',
+	              'id'          => 'body',
+	              'cols' => 100,
+	            );
+			
+				echo form_textarea($data) 
+			?>
 		</td>
 	</tr>
 	<tr>

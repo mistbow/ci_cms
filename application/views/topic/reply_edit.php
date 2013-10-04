@@ -11,6 +11,7 @@
 	              'name'        => 'body',
 	              'id'          => 'body',
 	              'value'       => $reply->body,
+	              'cols' => 100,
 	            );
 				echo form_textarea($data); 
 			?>

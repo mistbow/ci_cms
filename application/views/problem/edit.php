@@ -23,6 +23,7 @@
 	              'name'        => 'body',
 	              'id'          => 'body',
 	              'value'       => $topic->body,
+	              'cols' => 100,
 	            );
 				echo form_textarea($data); 
 			?>
