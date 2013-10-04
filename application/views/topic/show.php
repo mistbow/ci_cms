@@ -43,6 +43,15 @@
 	
 	<?php if(count($topic->replies) > 0) : foreach($topic->replies as $reply): ?>
 		<div class="media">
+			
+			<?php if(is_mine($reply->user->id)) : ?>
+			<div class="tools pull-right">
+				<a class="icon small_edit" href="<?php echo "/topic/edit/".$topic->id;?>" title="修改本帖">
+					<span class="glyphicon glyphicon-check"></span>
+			    </a>
+			</div>
+			<?php endif; ?>
+	
 		  <a class="pull-left" href="<?php echo "/user/show/".$reply->user->id;?>">
 		    <img class="media-object" src="<?php echo $reply->user->userInfo->avatar;?>" width="48" height="48" alt="...">
 		  </a>
