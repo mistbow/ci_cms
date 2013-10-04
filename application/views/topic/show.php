@@ -46,7 +46,7 @@
 			
 			<?php if(is_mine($reply->user->id)) : ?>
 			<div class="tools pull-right">
-				<a class="icon small_edit" href="<?php echo "/topic/edit/".$topic->id;?>" title="修改本帖">
+				<a class="icon small_edit" href="<?php echo "/reply/edit/".$reply->id;?>" title="修改回复">
 					<span class="glyphicon glyphicon-check"></span>
 			    </a>
 			</div>
