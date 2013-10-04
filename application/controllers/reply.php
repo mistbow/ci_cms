@@ -47,4 +47,20 @@ class Reply extends Frontend_Controller {
 		}
 	}
 	
+	public function delete() {
+		$reply_id = $this->uri->segment(3);
+		$reply = $this->reply->get($reply_id);
+		if($reply == null) {
+			echo '404';exit;
+		}
+		$topic_id = $reply['topic_id'];
+		$user_id = $reply->user_id;
+		if(is_mine($user_id)) {
+			$this->reply->delete($reply_id);
+			redirect('topic/show/'.$topic_id);
+		} else {
+			echo '404';exit;
+		}
+	}
+	
 }
