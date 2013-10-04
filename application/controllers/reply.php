@@ -53,7 +53,7 @@ class Reply extends Frontend_Controller {
 		if($reply == null) {
 			echo '404';exit;
 		}
-		$topic_id = $reply['topic_id'];
+		$topic_id = $reply->topic_id;
 		$user_id = $reply->user_id;
 		if(is_mine($user_id)) {
 			$this->reply->delete($reply_id);
