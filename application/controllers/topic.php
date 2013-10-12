@@ -23,7 +23,6 @@ class Topic extends Frontend_Controller {
 		$this->data['topics'] = $topics;
 		$this->pagination->initialize($config);
         $this->data['links'] = $this->pagination->create_links();
-		var_dump($this->data['links']);exit;
     }
 	
 	public function newtopic() {

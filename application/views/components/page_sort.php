@@ -9,5 +9,5 @@
         <li><a href="/topics/no_reply" rel="nofollow">无人问津</a></li> /
         <li><a href="/topics/last" rel="nofollow">最新创建</a></li>
       </ul>
-    </div>
+    </div><!-- end sorts -->
 </div> <!--  end node_info -->
