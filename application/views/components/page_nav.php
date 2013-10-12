@@ -6,9 +6,8 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
           	</a>
-          	<a class="brand" href="<?php echo base_url(); ?>">
-          		<?php echo $site_name; ?>
-          	</a>
+          	<?php echo anchor(base_url(), $site_name, array('class' => 'brand')); ?>
+          	
           <div class="nav-collapse collapse">
             <ul class="nav">
             	<li class="active"><?php echo anchor('www.6bey.com', '首页'); ?></li>
