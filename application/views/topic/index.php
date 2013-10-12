@@ -21,4 +21,8 @@
   </div>
 </div>
 <?php endforeach; ?>
-<div><?php echo $links;?></div>
+<div style="text-align:center;">
+	<div class="pagination pagination-large">
+		<?php echo $links;?>
+	</div>
+</div>
