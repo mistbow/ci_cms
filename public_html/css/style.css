@@ -1,5 +1,6 @@
 body {
 	background-color: #ccc;
+	font-family: Arial,Helvetica,sans-serif;
 }
 
 a {
@@ -7,85 +8,60 @@ a {
 	text-decoration: none;
 	font-family:Microsoft YaHei;
 }
-ul {
-	list-style: none;
-}
 
-li.subject {
-	margin: 0 10px;
-}
-
-.content-unit {
-	padding: 15px;
-	border: 1px solid #e1e1e1;
-	background: #fafafa;
-	margin-bottom: 20px;
-}
-
-.content-unit dl {
-	margin-left: 30px;
-	width: 900px;
-	line-height: 25px;
-	overflow: hidden;
-	zoom: 1;
-}
-
-.content-unit dt {
-	overflow: hidden;
-	zoom: 1;
-}
-
-.content-unit dt em {
-	float: left;
-	padding-right: 20px;
-	font-weight: bold;
-	font-size: 14px;
-}
-
-.content-unit dt strong {
-	width: 50px;
-	display: block;
-	float: left;
-	line-height: 26px;
-}
-
-.content-unit dt span {
-	float: left;
-	display: block;
-	width: 675px;
-}
-.content-unit dt span b {
-	font-weight: normal;
-}
-
-.content-unit dt a {
-	display: block;
-	float: left;
-	width: 67px;
-	height: 16px;
-	line-height: 16px;
-	margin: 5px 4px;
-}
-
-.content-unit dt span i {
-	padding: 0px 2px;
-}
-
-nobr {
-	white-space: nowrap;
-}
-
-.orange {
-	color: #ff6e00;
-}
-
-em, i {
-	font-style: normal;
-}
 
 /* post list */
 .media {
 	border-bottom: #D0D0D0 dashed 1px;
+}
+
+#node_info {
+	margin: 0 -10px;
+	padding: 0 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+#node_info .sorts {
+	text-align: right;
+	color: #999;
+	padding: 3px 0 10px 0;
+}
+
+#node_info .sorts ul {
+display: inline;
+margin: 0;
+padding: 0;
+}
+
+#node_info .sorts li {
+	display: inline;
+	margin: 0 5px;
+}
+
+#node_info .sorts li.active a {
+	color: #333;
+	border-bottom: 1px dotted #ddd;
+}
+
+#node_info .sorts li a.popular {
+	color: #9d5051;
+}
+
+.small_liked {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background: url("../img/icons.png") 0px -132px no-repeat;
+}
+
+.sidebar h2 {
+	font-size: 12px;
+	line-height: 100%;
+	color: #999;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+	margin: 0 -10px 10px -10px;
+	padding-bottom: 8px;
 }
 
 /* 小块数据 */
@@ -114,7 +90,7 @@ em, i {
 
 /* 帖子列表 head显示字体大小 */
 .media-heading  {
-	font-size: 17px;
+	font-size: 16px;
 }
 
 /* 帖子列表 横线向下一点 */
@@ -129,12 +105,12 @@ border-bottom: 1px dashed #eee;
 }
 
 .userinfo li label {
-color: #999;
-font-size: 12px;
-margin-right: 8px;
-display: inline-block;
-width: 100px;
-text-align: right;
+	color: #999;
+	font-size: 12px;
+	margin-right: 8px;
+	display: inline-block;
+	width: 100px;
+	text-align: right;
 }
 
 /* post edit css*/
