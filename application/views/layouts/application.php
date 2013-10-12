@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="alert alert-info">
     	<a href="/">6bey又一次蛋疼的改版界面了</a>
-	</div>
+	</div> 
     <div class="row">
     	<div class="span9">
     		<div class="content-unit">
