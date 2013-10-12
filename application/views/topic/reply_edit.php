@@ -1,26 +1,24 @@
 <div class="content-unit">
-<?php echo form_open('/topic/create'); ?>
+<?php 
+	$hidden = array('id' => $reply->id);
+	echo form_open('/reply/update', '', $hidden); 
+?>
 <table>
-	<tr>
-		<td>
-			<?php echo form_input('title'); ?>
-		</td>
-	</tr>
 	<tr>
 		<td>
 			<?php 
 				$data = array(
 	              'name'        => 'body',
 	              'id'          => 'body',
+	              'value'       => $reply->body,
 	              'cols' => 100,
 	            );
-			
-				echo form_textarea($data) 
+				echo form_textarea($data); 
 			?>
 		</td>
 	</tr>
 	<tr>
-		<td><?php echo form_submit('submit', '发表', 'class="btn btn-primary"'); ?></td>
+		<td><?php echo form_submit('submit', '提交修改', 'class="btn btn-primary"'); ?></td>
 	</tr>
 </table>
 <?php echo form_close();?>

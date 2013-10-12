@@ -1,5 +1,5 @@
 <div class="content-unit">
-<?php echo form_open('/topic/create'); ?>
+<?php echo form_open('/problem/create'); ?>
 <table>
 	<tr>
 		<td>
@@ -8,6 +8,7 @@
 	</tr>
 	<tr>
 		<td>
+			
 			<?php 
 				$data = array(
 	              'name'        => 'body',
@@ -17,6 +18,11 @@
 			
 				echo form_textarea($data) 
 			?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<?php echo form_input('score') ?>
 		</td>
 	</tr>
 	<tr>

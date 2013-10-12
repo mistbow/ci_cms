@@ -11,7 +11,6 @@
 	              'name'        => 'title',
 	              'id'          => 'title',
 	              'value'       => $topic->title,
-	              'cols' => 100,
 	            );
 				echo form_input($data); 
 			?>
@@ -24,6 +23,7 @@
 	              'name'        => 'body',
 	              'id'          => 'body',
 	              'value'       => $topic->body,
+	              'cols' => 100,
 	            );
 				echo form_textarea($data); 
 			?>

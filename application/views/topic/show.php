@@ -13,7 +13,7 @@
 	<div style="margin-left:20px;">
 		<?php echo $topic->body; ?>
 	</div>
-<?php if(is_mine($this->session, $topic->user->id)) : ?>
+<?php if(is_mine($topic->user->id)) : ?>
 <div class="tools pull-right">
         
     <a class="likeable" data-count="0" data-id="14457" data-state="" data-type="Topic" href="#" onclick="return App.likeable(this);" rel="twipsy" data-original-title="喜欢">
@@ -24,7 +24,7 @@
     <a class="icon small_edit" href="<?php echo "/topic/edit/".$topic->id;?>" title="修改本帖">
 		<span class="glyphicon glyphicon-check"></span>
     </a>
-    <a class="icon small_delete" data-confirm="确定要删除么？" data-method="delete" href="<?php echo "/topic/delete/".$topic->user->id;?>" rel="nofollow" title="删除本帖">
+    <a class="icon small_delete" data-confirm="确定要删除么？" data-method="delete" href="<?php echo "/topic/delete/".$topic->id;?>" rel="nofollow" title="删除本帖">
     	<span class="glyphicon glyphicon-trash"></span>
     </a>
 </div>
@@ -43,6 +43,21 @@
 	
 	<?php if(count($topic->replies) > 0) : foreach($topic->replies as $reply): ?>
 		<div class="media">
+			
+			<div class="tools pull-right">
+			<?php if(is_mine($reply->user->id)) : ?>
+				<a class="icon small_edit" href="<?php echo "/reply/edit/".$reply->id;?>" title="修改回复">
+					<span class="glyphicon glyphicon-check"></span>
+			    </a>
+			    <a class="icon small_delete" data-confirm="确定要删除么？" data-method="delete" href="<?php echo "/reply/delete/".$reply->id;?>" rel="nofollow" title="删除回复">
+			    	<span class="glyphicon glyphicon-trash"></span>
+			    </a>
+			<?php endif; ?>
+				<a class="icon small_edit" href="" title="回复">
+					<span class="glyphicon glyphicon-share-alt"></span>
+			    </a>
+			</div>
+	
 		  <a class="pull-left" href="<?php echo "/user/show/".$reply->user->id;?>">
 		    <img class="media-object" src="<?php echo $reply->user->userInfo->avatar;?>" width="48" height="48" alt="...">
 		  </a>
@@ -74,6 +89,7 @@
 			<?php echo form_textarea($data = array(
               'name'        => 'body',
               'id'          => 'body',
+              'cols' => 100,
             )); ?>
         </td>
     </tr>
