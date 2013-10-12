@@ -10,7 +10,7 @@
           	
           <div class="nav-collapse collapse">
             <ul class="nav">
-            	<li class="active"><?php echo anchor('www.6bey.com', '首页'); ?></li>
+            	<li class="active"><?php echo anchor(base_url(), '首页'); ?></li>
 	        	<li class="active"><?php echo anchor('topic/index', '讨论区'); ?></li>
 				<li class="active"><?php echo anchor('ask/index', '问答社区'); ?></li>
 				<li class="active"><?php echo anchor('exercise/index', '师兄笔记'); ?></li>

@@ -12,7 +12,7 @@
 				<?php echo $yield; ?>
 			</div><!-- end content-unit -->
 		</div> <!-- end span9 -->
-		<<div class="span3 sidebar">
+		<div class="span3 sidebar">
 			<?php $this->load->view('components/page_sidebar'); ?>
 		</div><!-- end span3 -->
 	</div><!-- end row-->
