@@ -21,6 +21,9 @@ a {
 	border-bottom: 1px solid #ddd;
 }
 
+.media-heading a {
+	font-weight: normal;
+}
 #node_info .sorts {
 	text-align: right;
 	color: #999;
