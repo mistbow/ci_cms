@@ -15,6 +15,10 @@ class Migration_Create_users extends CI_Migration {
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE
             ),
+            'ip_address' => array(
+				'type' => 'VARBINARY',
+				'constraint' => '16'
+			),
             'username' => array(
                 'type' => 'VARCHAR',
                 'constraint' => '100',
@@ -23,17 +27,48 @@ class Migration_Create_users extends CI_Migration {
                 'type' => 'VARCHAR',
                 'constraint' => '80',
             ),
+            'salt' => array(
+				'type' => 'VARCHAR',
+				'constraint' => '40'
+			),
             'email' => array(
                 'type' => 'VARCHAR',
                 'constraint' => '100',
                 'null' => TRUE,
             ),
-            'status' => array(
-                'type' => 'TINYINT',
-                'constraint' => '1',
-                'unsigned' => TRUE,
-                'default' => 0,
-            ),
+            'activation_code' => array(
+				'type' => 'VARCHAR',
+				'constraint' => '40',
+				'null' => TRUE
+			),
+			'forgotten_password_code' => array(
+				'type' => 'VARCHAR',
+				'constraint' => '40',
+				'null' => TRUE
+			),
+			'forgotten_password_time' => array(
+				'type' => 'INT',
+				'constraint' => '11',
+				'unsigned' => TRUE,
+				'null' => TRUE
+			),
+			'created_on' => array(
+				'type' => 'INT',
+				'constraint' => '11',
+				'unsigned' => TRUE,
+			),
+			'last_login' => array(
+				'type' => 'INT',
+				'constraint' => '11',
+				'unsigned' => TRUE,
+				'null' => TRUE
+			),
+            'active' => array(
+				'type' => 'TINYINT',
+				'constraint' => '1',
+				'unsigned' => TRUE,
+				'null' => TRUE
+			),
 		));
 		
         $this->dbforge->add_key('id', TRUE);
