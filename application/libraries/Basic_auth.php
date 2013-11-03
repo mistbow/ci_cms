@@ -1,8 +1,7 @@
 <?php 
-class Basic_autho {
+class Basic_auth {
 	
 	public function __construct() {
-		parent::__construct();
 		$this->load->library('email');
 		$this->load->config('basic_auth', TRUE);
 		$this->load->model('basic_auth_model');
