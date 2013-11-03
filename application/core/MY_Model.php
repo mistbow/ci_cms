@@ -2,8 +2,6 @@
 
 class MY_Model extends CI_Model {
 
-	protected $class;
-
 	protected $table;
 
 	protected $primary_key = 'id';
@@ -16,9 +14,9 @@ class MY_Model extends CI_Model {
 
 	public function __construct() {
 		parent::__construct();
+ 		$this->load->helper('inflector');
 
-		self::$class = get_called_class();
-		self::$table = strtolower(preg_replace('/_model$/', '', self::$class));
+		$this->table = plural(preg_replace('/(_m|_model)?$/', '', strtolower(get_class($this))));
 
 	}
 
@@ -31,7 +29,7 @@ class MY_Model extends CI_Model {
 
 		$this -> _set_where($where);
 
-		$row = $this -> db -> get($this -> _table);
+		$row = $this -> db -> get($this -> table);
 
 		return $row;
 	}
@@ -52,7 +50,7 @@ class MY_Model extends CI_Model {
 	}
 
 	public function get_all() {
-		return $this -> db -> get($this -> _table);
+		return $this -> db -> get($this -> table)->result_array();
 	}
 
 	public function insert($data) {
@@ -78,7 +76,7 @@ class MY_Model extends CI_Model {
 	}
 
 	public function update_many($primary_values, $data, $skip_validation = FALSE) {
-		$result = $this -> db -> where_in($this -> primary_key, $primary_values) -> set($data) -> update($this -> _table);
+		$result = $this -> db -> where_in($this -> primary_key, $primary_values) -> set($data) -> update($this -> table);
 		return $result;
 	}
 
@@ -87,21 +85,21 @@ class MY_Model extends CI_Model {
 		$data = array_pop($args);
 
 		$this -> _set_where($args);
-		$result = $this -> db -> set($data) -> update($this -> _table);
+		$result = $this -> db -> set($data) -> update($this -> table);
 		$this -> trigger('after_update', array($data, $result));
 
 		return $result;
 	}
 
 	public function update_all($data) {
-		$result = $this -> db -> set($data) -> update($this -> _table);
+		$result = $this -> db -> set($data) -> update($this -> table);
 		return $result;
 	}
 
 	public function delete($id) {
 		$this -> db -> where($this -> primary_key, $id);
 
-		$result = $this -> db -> delete($this -> _table);
+		$result = $this -> db -> delete($this -> table);
 
 		return $result;
 	}
@@ -111,7 +109,7 @@ class MY_Model extends CI_Model {
 
 		$this -> _set_where($where);
 
-		$result = $this -> db -> delete($this -> _table);
+		$result = $this -> db -> delete($this -> table);
 
 		return $result;
 	}
@@ -119,7 +117,7 @@ class MY_Model extends CI_Model {
 	public function delete_many($primary_values) {
 		$this -> db -> where_in($this -> primary_key, $primary_values);
 
-		$result = $this -> db -> delete($this -> _table);
+		$result = $this -> db -> delete($this -> table);
 
 		return $result;
 	}
@@ -128,18 +126,18 @@ class MY_Model extends CI_Model {
 		$where = func_get_args();
 		$this -> _set_where($where);
 
-		return $this -> db -> count_all_results($this -> _table);
+		return $this -> db -> count_all_results($this -> table);
 	}
 
 	public function count_all() {
-		return $this -> db -> count_all($this -> _table);
+		return $this -> db -> count_all($this -> table);
 	}
 
 	/**
 	 * Return the next auto increment of the table. Only tested on MySQL.
 	 */
 	public function get_next_id() {
-		return (int)$this -> db -> select('AUTO_INCREMENT') -> from('information_schema.TABLES') -> where('TABLE_NAME', $this -> _table) -> where('TABLE_SCHEMA', $this -> db -> database) -> get() -> row() -> AUTO_INCREMENT;
+		return (int)$this -> db -> select('AUTO_INCREMENT') -> from('information_schema.TABLES') -> where('TABLE_NAME', $this -> table) -> where('TABLE_SCHEMA', $this -> db -> database) -> get() -> row() -> AUTO_INCREMENT;
 	}
 
 	/**
