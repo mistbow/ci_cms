@@ -7,6 +7,10 @@ class Auth extends Frontend_Controller {
 	}
 	
 	public function register() {
+		$this -> data['subview'] = 'components/register_subview';
+		$this->view = 'user/register';
+	}
+	public function register_submit() {
 		$this->data['title'] = "用户注册";
 		
 		//validate form input
@@ -20,6 +24,9 @@ class Auth extends Frontend_Controller {
 			$email    = strtolower($this->input->post('email'));
 			$password = $this->input->post('password');
 			
+		} else {
+			$this->session->set_flashdata('error', '信息填写不正确');
+			redirect('', 'refresh');
 		}
 		
 		if($this->basic_auth->register($username, $email, $password)) {

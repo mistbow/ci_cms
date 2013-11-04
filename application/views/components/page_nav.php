@@ -41,7 +41,7 @@
             </ul>
             <?php else : ?>
 			<ul class="nav pull-right">
-				<li><?php echo anchor('user/register', '注册'); ?></li>
+				<li><?php echo anchor('user/auth/register', '注册'); ?></li>
 				<li><?php echo anchor('qq/login', '登录'); ?></li>
 			</ul>
 			<?php endif; ?>
